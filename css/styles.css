@@ -1,0 +1,63 @@
+:root {
+    /* pallet source https://coolors.co/7d7c7a-0b1d51-eaf6ff-ffd700 */
+    --primary-color: #7D7C7A; /* Gray Web */
+    --secondary-color: #0B1D51; /* Royal Blue Dark */
+    --accent1-color: #EAF6FF; /* Alice Blue */
+    --accent2-color: #FFD700; /* Gold Web Golden */
+  
+    /* change the values below to your chosen font(s) */
+    --heading-font: "Courier", monospace;
+    --paragraph-font: Arial, Helvetica, sans-serif;
+  }
+
+  body {
+    background-color: var(--accent1-color);
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-items: center;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--secondary-color);
+    font-family: var(--heading-font);
+  }
+  p, span, li {
+    font-family: var(--paragraph-font);
+  }
+
+  header {
+    grid-column: 2 / 3;
+    width: 100%;
+    border-radius: 12.5px;
+    padding: 25px;
+    background-color: var(--secondary-color);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  header h1, header h2, header h3, header h4, header h5, header h6 {
+    color: var(--primary-color);
+  }
+
+  footer {
+    grid-column: 2 / 3;
+    width: 100%;
+    border-radius: 12.5px;
+    padding: 12.5px;
+    background-color: var(--secondary-color);
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  #year {
+    color: var(--accent1-color);
+  }
+  #last-update {
+    color: var(--accent2-color);
+  }
+
+  main {
+    grid-column: 2 / 3;
+    width: 100%;
+  }
