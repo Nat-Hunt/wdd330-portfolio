@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang-en>
+    <head>
+        <title>Notes on UX Design</title>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>Notes</h1>
+        </header>
+        <main>
+            <span>These notes are taken on the 
+                <a href="https://www.sitepoint.com/premium/courses/master-mobile-ux-2952/lesson/1/step/1/">Master Moblie UX sitepoint course</a></span>
+            <nav>
+                <a href="..">Return to Root Menu</a>
+                <a href="index.html">Code example</a>
+            </nav>
+            <section>
+                <h2>How to Rewire Your Brain for Mobile First UX</h2>
+                <ul>
+                    <li>"If you design for the smallest, least powerful device first, 
+                        then you will focus on the content, and your core functionality.
+                        That leads to simple, beautiful apps. If you do it the other way 
+                        around, it'll be like trying to put a marshmallow into a piggy 
+                        bank, which is neither simple, nor beautiful" 
+                        Joel Marsh-The Hipper Element</li>
+                    <li>Everything we build must be viewable from small watches to large 
+                        TVs</li>
+                    <li>2-3 devices per person, per household.</li>
+                    <li>Mobile first is not Responsive Retrofitting (adjusting what 
+                        already exists to be mobile compatible). Responsive Retrofitting 
+                        is a good short-term solution to the problem. Keep in mind that 
+                        Responsive Retrofitting <strong>doesn't address</strong> touch 
+                        screen interaction or mobile screen real estate issues. </li>
+                    <li>Mobile first downside: a full rebuild is time consuming and costly. 
+                        <strong>However</strong>, it does ensure the best experience 
+                        across the most devices.</li>
+                    <li>Mobile First is, "future friendly and ready for growth"</li>
+                    <li>Start small and scale up (perhaps when I am developing, I 
+                        should keep chrome's Dev Tools opened and the sample screen
+                        scaled to a mobile size. I should also double check it's 
+                        functionality on my mobile device after publishing it to GitHub)</li>
+                </ul>
+                <h2>How to Improve UX by Understanding Users</h2>
+                <ul>
+                    <li>"It's really hard to design products by focus groups. A lot of 
+                        times, people don't know what they want until you show it to them" 
+                        Steve Jobs-Apple</li>
+                    <li>Don't listen to what they say, observe behavior and design 
+                        solutions</li>
+                    <li>3 Things to do:<ol>
+                        <li>Be There (Immediate)</li>
+                        <li>Be Useful (Relevant). Don't make users hunt for what they
+                            want. 
+                        </li>
+                        <li>Be Quick (Frictionless). Reduce their cognitive load.
+                            Don't provide extra steps.
+                        </li>
+                    </ol></li>
+                    <li>75% of people rely on thumbs when using their mobile device.
+                        49% rely on a one-handed grip. Ensure that the content is easily
+                        reachable from either side of the screen. The top of the screen 
+                        is the most difficult spot of the device to reach. Make navigation
+                        and important primary controls of an app accessible from the bottom
+                        of the screen.
+                    </li>
+                    <li>Speed matters. Not everybody has the latest and greatest speeds.
+                        <ul>
+                            <li>Reduce image usage. SVG/Webfonts are lower bandwidth. 
+                                They look good on small and large screens</li>
+                            <li>Ensure that CSS and JS files are as optimized and small
+                                as possible. Minify the files after development</li>
+                            <li>GZIP files to eliminate unnecessary data</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h2>Better Mobile UX with Strategic Menu Design</h2>
+                <ul>
+                    <li>"The trouble with software is... it sucks. That's not a nice 
+                        thing to say... but it is a fundamental truth. Software customers 
+                        -- you, me, CIOs of multibillion-dollar companies...have learned 
+                        to live with mediocre software. We do not ocunt on software to be 
+                        intuitively easy to understand or to work consistently. Instead, 
+                        we make do." Stewart Alsop-Venture Capitalist</li>
+                    <li>Make sure most commonly used menu items are located at the 
+                        bottom of the screen. (This creates the perception of speed)
+                    </li>
+                    <li>Most of the time, users won't tell you there's a problem.
+                        They'll just go to another website or download another app.
+                        Make 'em happy off-the-bat and perform high quality research.
+                    </li>
+                </ul>
+                <h2>Designing Intuitive and Mobile Friendly Forms</h2>
+                <ul>
+                    <li>"[The constraints of Mobile] push you toward more focused, 
+                        simplified solutions. You can only fit so much on the screen, 
+                        people often have to wait for it, and they're unlikely to give 
+                        you their full attention. So make it easy to understand and use 
+                        and focus on the important things first. Mobile is a great 
+                        forcing function for simplicity." Luke Wroblewski - Co-Founder of 
+                        Polar and Bagcheck</li>
+                    <li>Don't put labels to the side. Use float labels. They make sure
+                        that the form doesn't look cramped and that users don't forget
+                        what they're filling in.
+                    </li>
+                    <li>Make the inputs a bit taller than normal, this makes it easier
+                        for users to tap on them without "targetting" the input box.
+                    </li>
+                    <li>Reduce the number of fields to only require the necessary 
+                        information for the purpose of the form.
+                    </li>
+                    <li>Pagenate the form (break it into sections). Ensure that there is 
+                        some form of progress indicator.
+                    </li>
+                    <li>Enable auto-complete!</li>
+                    <li>Passwords are important! Allow an option to hide/show the password 
+                        they're typing in. "Typically, masking passwords doesn't even 
+                        increase security, but it does cost you business due to login
+                        failures." - Nielsen Norman Group</li>
+                    <li>For credit cards: <ol>
+                        <li>Auto-advance to the next field</li>
+                        <li>Space the card numbers using spaces/dashes</li>
+                        <li>Provide visual cues for where to find the information</li>
+                        <li>Consider placing it all in one-line</li>
+                    </ol></li>
+                    <li>Use the best keyboard for the information asked for. When taking
+                        numbers, use the keypad.
+                    </li>
+                    <li>Don't force a copy and paste for calling. You can use an "a" 
+                        tag to auto-call a number when it's clicked. For example my 
+                        personal cell:<a href="tel:17573180453">757-318-0453</a></li>
+                </ul>
+                <h2>Designing a Better Mobile Advertising User Experience</h2>
+                <ul>
+                    <li>"End-users, not technologies, shape the market. Consequently 
+                        marketers need to stay abreast not only of technological 
+                        developments but also of the way people respond to them" 
+                        Matt Haig - Author</li>
+                    <li>Make ads small and simple rather than large and intrusive.</li>
+                    <li>Ads should not obscure content.</li>
+                    <li>You can still use large ads, just don't make them large to begin
+                        with. Use a smaller ad to entice a click, then when the click 
+                        occurs you can roll out a larger ad with an obvious closing button.
+                    </li>
+                    <li>Video ads are popular right now and usually result in higher
+                        traffic.
+                    </li>
+                    <li>Another idea is to show a large ad in a window behind the content
+                        displayed during gaps between large sections or divs.
+                    </li>
+                    <li>"The fallen state of our internet is a direct, if unintentional, 
+                        consequence of choosing advertising as the default model to support
+                        online content and services." Ethan Zuckerman - Creator of the 
+                        Pop-up ad
+                    </li>
+                    <li>STOP USING POP-UPS/POP-OVERS</li>
+                    <li><strong>Remember! Content-first.</strong></li>
+                </ul>
+            </section>
+        </main>
+        <footer>
+            <span id="year"></span>
+            <span id="last-update"></span>
+        </footer>
+    </body>
+    <script src="../js/main.js"></script>
+</html>
