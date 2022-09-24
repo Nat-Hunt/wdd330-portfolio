@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Week 2 Exercises</title>
+        <link rel="stylesheet" href="../css/styles.css">
+        <style>
+            .code-output {
+                display: none;
+                grid-template-columns: 1fr 1fr 
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Coding Exercises from Eloquent Javascript</h1>
+        </header>
+        <main>
+            <h2>Chapter 2. Program Structure</h2>
+            <button onclick="showOutput('2-1')">2.1 Looping a triangle</button><br>
+            <div class="code-output" id="2-1">
+                <div>
+                    <h3>Code</h3>
+                    <pre>let output = "";<br>for (let i = 0; i < 7; i++) {<br>  output += "#";<br>  console.log(output);<br>}</pre>    
+                </div>
+                <div>
+                    <h3>Output</h3>
+                    <span id="triangle"></span>    
+                </div>
+            </div>
+
+            <button onclick="showOutput('2-2')">2.2 FizzBuzz</button><br>
+            <div class="code-output" id="2-2">
+                <div>
+                    <h3>Code</h3>
+                    <pre>for (let i = 1; i <= 100; i++) {<br>    let output = '';<br>    if (i % 3 == 0) output += 'Fizz';<br>    if (i % 5 == 0) output += 'Buzz';<br>    console.log(output || i);<br>}</pre>
+                </div>
+                <div>
+                    <h3>Output</h3>
+                    <span id="fizzbuzz""></span>
+                </div>
+            </div>
+            
+            <button onclick="showOutput('2-3')">2.3 Chessboard</button><br>
+            <div class="code-output" id="2-3">
+                <div>
+                    <h3>Code</h3>
+                    <pre>const size = 8;<br>let chessOutput = '';<br>for (y = 1; y <= size; y++) {<br>    for (x = 1; x <= size; x++) {<br>        let xMod2 = (x % 2);<br>        let yMod2 = (y % 2);<br><br>        if ((xMod2 == 1) && (yMod2 == 1)) {chessOutput += ' ';}<br><br>        if ((xMod2 == 0) && (yMod2 == 1)){chessOutput += '#';}<br>        <br>        if ((xMod2 == 0) && (yMod2 == 0)) {chessOutput += ' ';}<br><br>        if ((xMod2 == 1) && (yMod2 == 0)){chessOutput += '#';}<br>        <br>        if (x == size) {chessOutput += '\n';}<br>    }<br>}<br>console.log(chessOutput);</pre>
+                </div>
+                <div>
+                    <h3>Output</h3>
+                    <pre id="chessboard"></pre>
+                </div>
+            </div>
+
+            <h2>Chapter 3. Functions</h2>
+            <button onclick="showOutput('3-1')">3.1 Minimum</button><br>
+            <div class="code-output" id="3-1">
+                <div>
+                    <h3>Code</h3>
+                    <pre>function min (num1, num2) {<br>    let lowest;<br><br>    if (num1 < num2) {<br>        lowest = num1;<br>    } else if (num2 < num1) {<br>        lowest = num2;<br>    } else {<br>        lowest = 'error, enter two number that are inequal.'<br>    }<br><br>    return lowest;<br>}<br>console.log(min(0, 10));<br>console.log(min(0, -10));</pre>
+                </div>
+                <div>
+                    <h3>Output</h3>
+                    <span id="minimum"></span>
+                </div>
+            </div>
+
+            <button onclick="showOutput('3-2')">3.2 Recursion</button><br>
+            <div class="code-output" id="3-2">
+                <div>
+                    <h3>Code</h3>
+                    <pre>function isEven(posNum){<br>    // check for proper input, else abort<br>    if (posNum < 0){<br>        return 'ERROR INVALID INPUT: please enter a positive number';<br>    }<br><br>    let isEven = false;<br>    if (posNum % 2 == 0) {<br>        isEven = true;<br>    } else if (posNum % 2 == 1) {<br>        isEven = false;<br>    } else {<br>        isEven(posNum - 2)<br>    }<br>    return isEven;<br>}<br><br>console.log(isEven(50));<br>console.log(isEven(75));<br>console.log(isEven(-1));</pre>
+                </div>
+                <div>
+                    <h3>Output</h3>
+                    <span id="recursion"></span>
+                </div>
+            </div>
+            <button onclick="showOutput('3-3')">3.3 Bean Counting</button><br>
+            <div class="code-output" id="3-3">
+                <div>
+                    <h3>Code</h3>
+                    <pre>function countBs(input){<br>    return countChar(input, "B")<br>}<br>function countChar(input, char){<br>    if ((typeof input != 'string') && (char.length > 1) && (typeof char != 'string')){<br>        return "ERROR INVALID INPUT: please enter a string";<br>    }<br>    let totalchars = 0;<br>    for (let i = 0; i < input.length; i++) {<br>        if (input[i] === char) totalchars += 1;<br>    }<br>    return totalchars;<br>}<br><br>console.log(countBs("BBC"));<br>console.log(countChar("kakkerlak", "k"))</pre>
+                </div>
+                <div>
+                    <h3>Output</h3>
+                    <span id="beanCounting"></span>
+                </div>
+            </div>
+        
+            <h2>Chapter 4. Data Structures: Objects and Arrays</h2>
+            </div>
+            <button onclick="showOutput('4-1')">4.1 The Sum of a Range</button><br>
+            <div class="code-output" id="4-1">
+                <div>
+                    <h3>Code</h3>
+                    <pre>function range(start, end, step = 1){<br>    let rangeArray = []; <br>    if (start < end){<br>        for (let i = start; i <= end; i += step) {<br>            rangeArray.push(i);<br>        }<br>    } else  if (end < start){<br>        for (let i = start; i >= end; i += step) {<br>            rangeArray.push(i);<br>        }<br>    }<br>    return rangeArray;<br>}<br>function sum(rangeArray){<br>    let sum = 0;<br>    for (let i = 0; i < rangeArray.length; i++){<br>        sum += rangeArray[i];<br>    }<br>    return sum;<br>}</pre>
+                </div>
+                <div>
+                    <h3>Output</h3>
+                    <span id="sumOfRange"></span>
+                </div>
+            </div>
+            </div>
+            <button onclick="showOutput('4.2')">4.2 Reversing an Array</button><br>
+            <div class="code-output" id="4.2">
+                <div>
+                    <h3>Code</h3>
+                    <pre>function reverseArray(anArray){<br>    let reversedArray = [];<br>    let length = anArray.length;<br>    for (let i = 0; i < anArray.length; i++) {<br>        reversedArray[i] = anArray[length -1];<br>        length--;<br>    }<br>    return reversedArray;<br>}<br>function reverseArrayInPlace(anArray){<br>    let reversed = reverseArray(anArray);<br>    let length = anArray.length;<br>    for (let i = 0; i < length; i++) {<br>        anArray[i] = reversed[i];<br>    }<br>    return anArray;<br>}</pre>
+                </div>
+                <div>
+                    <h3>Output</h3>
+                    <span id="reverseArray"></span>
+                </div>
+            </div>
+            </div>
+            <button onclick="showOutput('4.3')">4.3 A List</button><br>
+            <div class="code-output" id="4.3">
+                <div>
+                    <h3>Code</h3>
+                    <pre>function arrayToList(anArray){<br>    let newList = null;<br>    for (let i = anArray.length - 1; i >= 0; i--) {<br>        newList = {value: anArray[i], rest: newList};<br>    }<br>    return newList;<br>}<br>function listToArray(aList){<br>    let newArray = [];<br>    for (let node = aList; node; node = node.rest){<br>        newArray.push(node.value);<br>    }<br>    return newArray;<br>}<br>function prepend(anElement, aList){<br>    return {anElement, rest: aList};<br>}<br>function nth(aList, num){<br>    if (!aList) return undefined;<br>    else if (num == 0) return aList.value;<br>    else return nth(aList.rest, num-1);<br>}</pre>
+                </div>
+                <div>
+                    <h3>Output</h3>
+                    <span id="aList"></span>
+                </div>
+            </div>
+            </div>
+            <button onclick="showOutput('4.4')">4.4 Deep Comparison</button><br>
+            <div class="code-output" id="4.4">
+                <div>
+                    <h3>Code</h3>
+                    <pre>function deepEqual(value1, value2){<br>    if (value1 === value2) return true;<br>    if (value1 == null || typeof value1 != 'object' || <br>        value2 == null || typeof value2 != 'object') return false;<br>    <br>    let value1keys = Object.keys(value1);<br>    let value2keys = Object.keys(value2);<br>    if (value1keys.length != value2keys.length) return false;<br>    for (let key of value1keys) {<br>        if (!value2keys.includes(key) || !deepEqual(value1[key], value2[key])) return false;<br>    }<br><br>    return true;<br>}<br>let obj = {here: {is: "an"}, object: 2};<br>console.log(deepEqual(obj, obj));<br>// → true<br>console.log(deepEqual(obj, {here: 1, object: 2}));<br>// → false<br>console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));<br>// → true</pre>
+                </div>
+                <div>
+                    <h3>Output</h3>
+                    <span id="deepComparison"></span>
+                </div>
+            </div>
+        
+        </main>
+        <footer>
+            <span id="year"></span>
+            <span id="last-update"></span>
+        </footer>
+    </body>
+    <script>
+        function showOutput(exercise) {
+            let element = document.getElementById(exercise);
+            if (element.style.display === 'none') {
+                element.style.display = 'grid';
+            } else {
+                element.style.display = 'none';
+            }
+        }
+    </script>
+    <script src="js/codingExercises.js"></script>
+</html>
