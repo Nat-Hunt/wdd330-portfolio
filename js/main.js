@@ -2,6 +2,10 @@ const linksBlock1 = [
     {
         label: "Week1 notes",
         url: "./week1/index.html"
+    },
+    {
+        label: "Week2 notes",
+        url: "./week2/codingExercises.html"
     }
 ]
 // const linksBlock2 = [
@@ -39,10 +43,3 @@ linksBlock1.forEach(
 //     }
 // )
 
-// add copywright info for footer
-const currentDate = new Date();
-const copyright = "&copy ";
-const name = " | Nathan T. Hunt | Alabama";
-document.querySelector('#year').innerHTML = copyright.concat(currentDate.getFullYear(), name);
-const lastUpdate = "Last Updated: ";
-document.querySelector('#last-update').textContent = lastUpdate.concat(document.lastModified);
