@@ -1,7 +1,7 @@
 const linksBlock1 = [
   {
     label: "Week1 notes",
-    url: "./week1/index.html",
+    url: "./week1/",
   },
   {
     label: "Week2 notes",
@@ -9,7 +9,7 @@ const linksBlock1 = [
   },
   {
     label: "Week3 notes",
-    url: "./week3/index.html",
+    url: "./week3/",
   },
 ];
 // const linksBlock2 = [
