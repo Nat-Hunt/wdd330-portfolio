@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      description="Notes on JavaScript:Novice to Ninja, 2nd Edition chapters 8, 12, and 15"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <title>Week 4 | Notes</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Week 4 Notes</h1>
+      <h2>JavaScript: Novice to Ninja, 2nd Edition</h2>
+      <h3>Chapters 8, 12, and 15</h3>
+    </header>
+    <main>
+      <button onclick="showOutput('chapter8')">Chapter 8: Forms</button><br />
+      <div class="output" id="chapter8">
+        <h2>Chapter 8: Forms</h2>
+        <h3>Forms</h3>
+        <ul>
+          <li>
+            It is common to process form information on the
+            <i>front end</i> rather than the backend
+          </li>
+          <li>
+            Some UX principles to keep in mind regarding forms:
+            <ul>
+              <li>Use correct and semantic markup</li>
+              <li>Make forms keyborad acessible</li>
+              <li>Use WAI-AIRA lables</li>
+              <li>
+                Further information regarding form UX design
+                <a
+                  href="https://www.sitepoint.com/premium/books/designing-ux-forms/"
+                  target="_blank"
+                  >here</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h3>A Searching Example</h3>
+        <ul>
+          <li>
+            <a href="./examples/searchingExample.html" target="_blank"
+              >searchingExample.html</a
+            >
+          </li>
+          <li>
+            the <strong><i>action</i></strong> attribute is used to designate
+            where a form will submit it's information to be processed
+          </li>
+          <li>
+            Accessing Form Elements
+            <ul>
+              <li>
+                Using a numerical index:
+                <code>const form = document.forms[0];</code>
+              </li>
+              <li>
+                Using the form tagname:
+                <code
+                  >const form = document.getElementsByTagname('form')[0];</code
+                >
+              </li>
+              <li>
+                Using the <strong><i>name</i></strong> attribute:
+                <code>const form = document.forms.search;</code><br />
+                Careful with this, if the name of the form shares its name with
+                a method of the <strong><i>document.forms</i></strong> object,
+                you'll reference that instead of the form
+              </li>
+              <li>
+                Using sqaure bracket notation:
+                <code>const form = document.forms['search'];</code><br />
+                This avoids the potential issues with using the name attribute
+                and handles cases where the name of the form's name contains any
+                invalid characters (like spaces or dashes)
+              </li>
+              <li>
+                <code>const [input,button] = form.elements</code><br />This
+                returns a collection of all elements contained in the form
+              </li>
+              <li>
+                <code>const input = form.searchInput</code><br />This returns
+                the specific element using the 'name' attribute as a property
+              </li>
+              <li>
+                <code>const input = form['searchInput']</code><br />Using square
+                bracket notation is also useful
+              </li>
+            </ul>
+          </li>
+          <li>
+            Form Properties and Methods
+            <ul>
+              <li>
+                <code>form.submit()</code> submits the form automatically and
+                skips the <code>submit</code> event
+              </li>
+              <li>
+                A form can be submitted manually by using a button or input
+                element with a type attribute of submit, or an input element
+                with a type attribute of image:
+              </li>
+              <li>
+                <code>form.reset()</code> resets all form fields back to their
+                starting values. This can also be done using a button with a
+                type attribute of reset.
+                <i
+                  >Reset buttons are considered poor for usability since the
+                  user may accidentaly erase all of their progress</i
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            Form Events
+            <ul>
+              <li>
+                The <code>focus</code> event is triggered when an element is
+                focused on
+              </li>
+              <li>
+                The <code>blur</code> event is triggered by moving focus away
+                from the element
+              </li>
+              <li>
+                The <code>change</code> event is triggered when focus is removed
+                from an element <i>after</i> a change ahs been made.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Submitting a Form
+            <ul>
+              <li>
+                The <code>submit</code> event happens when the form is submitted
+              </li>
+              <li>
+                Using an event listener, JavaScript can interrupt a
+                <code>submit</code> event. JavaScript can also stop the form
+                submission entirely by using the
+                <code>preventDefault()</code> method
+              </li>
+            </ul>
+          </li>
+          <li>
+            The <code>value</code> property is used to retrieve and change text
+            inside of the input element
+          </li>
+          <li>
+            Form Controls
+            <ul>
+              <li>
+                <code>input</code>: Used for text, passwords, check boxes, radio
+                buttons, and file uploads. Some attributes of the input tag are:
+                <ul>
+                  <li>
+                    <code>autofocus</code>: will give focus on a page load
+                  </li>
+                  <li>
+                    <code>placeholder</code>: will temporarily fill the field
+                    with text until the user enters text
+                  </li>
+                  <li>
+                    <code>maxlength</code>: will limit the number of characters
+                    that can be entered
+                  </li>
+                </ul>
+              </li>
+              <li><code>select</code>: Used for drop-down lists of options</li>
+              <li><code>textarea</code>: used for longer text entry</li>
+              <li>
+                <code>button</code>: Used for submitting and resetting forms
+              </li>
+              <li>
+                <a href="./examples/hero/hero.html" target="_blank"
+                  >hero.html</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h3>Input Fields</h3>
+        <iframe src="./examples/hero/hero.html" width="100%"></iframe>
+        <ul>
+          <li>
+            Using the <code>type="password" </code> conceals the characters as
+            they are entered
+          </li>
+          <li>
+            Checkboxes are used for selecting multiple options from a set.
+          </li>
+          <li>
+            Radio buttons are used for for selecting a single option from a set.
+            A group of radio buttons is defined by the
+            <code>name</code> attribute.
+          </li>
+          <li>
+            Hidden input fields (<code>type="hidden"</code>) are not displayed
+            by the browser and are used to pass along settings or information
+            that the user has already provided. Hidden fields ARE NOT secret and
+            should not contain sensitive information
+          </li>
+          <li>
+            file input fields (<code>type="file"</code>) are typically furnished
+            with a browse button by the browser
+          </li>
+          <li>
+            Other input field types:
+            <ul>
+              <li><code>number</code>: only accepts number</li>
+              <li><code>tel</code>: only accepts valid phone-numbers</li>
+              <li><code>color</code>: only accepts valid color codes</li>
+              <li><code>email</code>: only accepts valid email addresses</li>
+            </ul>
+          </li>
+          <li>
+            Select drop-down lists are used for selecting one or more options
+            from a list of values. NOTE: if you want to select mulitple, the
+            <code>multiple</code> attribute is required
+          </li>
+          <li>Text areas are used for inputting large amounts of text</li>
+          <li>
+            Buttons have three types:
+            <ol>
+              <li>
+                <code>submit</code>: The default type. Used to submit forms
+              </li>
+              <li>
+                <code>reset</code>: Used to reset all fields in a form. This is
+                not considered good-practice as it makes for poor usability
+              </li>
+              <li>
+                <code>button</code>: Used to make a generic button with no
+                default behavior. Useful for attaching event listeners with
+                JavaScript
+              </li>
+            </ol>
+          </li>
+        </ul>
+        <h3>Form Validation</h3>
+        <ul>
+          <li>
+            It is advisable to perform validation on both the client and server
+            side of a webpage
+          </li>
+          <li>
+            HTML5 has a built-in validation API which isn't fully supported from
+            all browsers, but is useful. More info can be found
+            <a
+              href="https://www.sitepoint.com/html5-forms-javascript-constraint-validation-api/"
+              target="_blank"
+              >here</a
+            >
+          </li>
+          <li>Most form validation can be done using JavaScript.</li>
+        </ul>
+        <h3>Disabling the Submit Button</h3>
+        <ul>
+          <li>
+            Can be done by adding the <code>disabled</code> attribute to the
+            submit button.
+          </li>
+          <li>
+            Can also be done programmatically. This function disables a button
+            if an input field is empty:<code>
+              <br />function disableSubmit(event) { if(event.target.value ===
+              ''){</code
+            >
+            <code
+              >document.getElementById('submit').disabled = true; } else {</code
+            >
+            <code>document.getElementById('submit').disabled = false; } }</code>
+          </li>
+        </ul>
+      </div>
+
+      <button onclick="showOutput('chapter12')">
+        Chapter 12: Object-Oriented Programming in Javascript</button
+      ><br />
+      <!-- <div class="output" id="chapter12"> -->
+      <div>
+        <h2>Chapter 12: Object-Oriented Programming in Javascript</h2>
+        <h3>Object-Oriented Programming</h3>
+        <h3>Constructor Functions</h3>
+        <h3>Static Methods</h3>
+        <h3>Prototypal Inheritance</h3>
+        <h3>Public and Private Methods</h3>
+        <h3>Inheritance</h3>
+        <h3>The Object Constructor</h3>
+        <h3>Polymorphism</h3>
+        <h3>Adding Methods to Built-in Objects</h3>
+        <h3>Property Attributes and Descriptors</h3>
+        <h3>Creating Objects from Other Objects</h3>
+        <h3>Mixins</h3>
+        <h3>Chaining Functions</h3>
+        <h3>Binding this</h3>
+        <h3>Borrowing Methods from Prototypes</h3>
+        <h3>Composition Over Inheritance</h3>
+      </div>
+      <button onclick="showOutput('chapter15')">
+        Chapter 15: Modern JavaScript Development</button
+      ><br />
+      <div class="output" id="chapter15">
+        <h2>Chapter 15: Modern JavaScript Development</h2>
+        <h3>Libraries</h3>
+        <h3>Modular JavaScript</h3>
+        <h3>MVC Frameworks</h3>
+        <h3>Templates</h3>
+        <h3>Package Managers</h3>
+        <h3>Deploying JavaScript</h3>
+      </div>
+    </main>
+    <footer>
+      <a href="..">Return Home</a>
+      <span id="year"></span>
+      <span id="last-update"></span>
+    </footer>
+  </body>
+  <script src="js/main.js"></script>
+  <script src="../js/copyright.js"></script>
+</html>

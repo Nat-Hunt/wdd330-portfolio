@@ -6,6 +6,9 @@
         <style>
             .code-output {
                 display: none;
+            }
+            .open {
+                display: grid;
                 grid-template-columns: 1fr 1fr 
             }
         </style>
@@ -148,11 +151,7 @@
     <script>
         function showOutput(exercise) {
             let element = document.getElementById(exercise);
-            if (element.style.display === 'none') {
-                element.style.display = 'grid';
-            } else {
-                element.style.display = 'none';
-            }
+            element.classList.toggle('open');
         }
     </script>
     <script src="js/codingExercises.js"></script>

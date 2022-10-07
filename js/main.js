@@ -11,6 +11,10 @@ const linksBlock1 = [
     label: "Week3 notes",
     url: "./week3/",
   },
+  {
+    label: "Week4 notes",
+    url: "./week4/",
+  },
 ];
 // const linksBlock2 = [
 //     {
