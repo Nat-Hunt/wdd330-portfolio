@@ -289,8 +289,7 @@
       <button onclick="showOutput('chapter12')">
         Chapter 12: Object-Oriented Programming in Javascript</button
       ><br />
-      <!-- <div class="output" id="chapter12"> -->
-      <div>
+      <div class="output" id="chapter12">
         <h2>Chapter 12: Object-Oriented Programming in Javascript</h2>
         <h3>Object-Oriented Programming</h3>
         <ul>
@@ -323,80 +322,100 @@
           below in an iframe
         </p>
         <iframe src="./examples/chapter12.js" width="100%"></iframe>
-
-        <!-- <h3>Constructor Functions</h3>
-        <ul>
-          <li></li>
-        </ul>
-        <h3>Static Methods</h3>
-        <ul>
-          <li></li>
-        </ul>
-        <h3>Prototypal Inheritance</h3>
-        <ul>
-          <li></li>
-        </ul>
-        <h3>Public and Private Methods</h3>
-        <ul>
-          <li></li>
-        </ul>
-        <h3>Inheritance</h3>
-        <ul>
-          <li></li>
-        </ul>
-        <h3>The Object Constructor</h3>
-        <ul>
-          <li></li>
-        </ul>
-        <h3>Polymorphism</h3>
-        <ul>
-          <li></li>
-        </ul>
-        <h3>Adding Methods to Built-in Objects</h3>
-        <ul>
-          <li></li>
-        </ul>
-        <h3>Property Attributes and Descriptors</h3>
-        <ul>
-          <li></li>
-        </ul>
-        <h3>Creating Objects from Other Objects</h3>
-        <ul>
-          <li></li>
-        </ul>
-        <h3>Mixins</h3>
-        <ul>
-          <li></li>
-        </ul>
-        <h3>Chaining Functions</h3>
-        <ul>
-          <li></li>
-        </ul>
-        <h3>Binding this</h3>
-        <ul>
-          <li></li>
-        </ul>
-        <h3>Borrowing Methods from Prototypes</h3>
-        <ul>
-          <li></li>
-        </ul>
-        <h3>Composition Over Inheritance</h3>
-        <ul>
-          <li></li>
-        </ul> -->
       </div>
 
       <button onclick="showOutput('chapter15')">
         Chapter 15: Modern JavaScript Development</button
       ><br />
       <div class="output" id="chapter15">
+        <!-- <div> -->
         <h2>Chapter 15: Modern JavaScript Development</h2>
         <h3>Libraries</h3>
+        <ul>
+          <li>
+            <strong>Library</strong> - Definition: a piece of code that provides
+            methods that make common tasks easier to achieve
+          </li>
+          <li>
+            jQuery
+            <ul>
+              <li>The most popular JavaScript library in use today</li>
+              <li>
+                Has a plugin system that makes it easy to extend and use to
+                build common web page elements.
+              </li>
+              <li>
+                Has its own testing library called
+                <a href="https://qunitjs.com/" target="_blank">QUnit</a>
+              </li>
+              <li>
+                Has a lot of support for older browsers (especcialy internet
+                explorer)
+              </li>
+              <li>
+                <a
+                  href="https://www.sitepoint.com/premium/books/jquery-novice-to-ninja-new-kicks-and-tricks/"
+                  >This book has more information on using jQuery</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="https://underscorejs.org/" target="_blank">Underscore</a> &
+            <a href="https://lodash.com/" target="_blank">Lodash</a>
+            are similar libraries in what they provide. They are used as core
+            dependencies for many additional libraries. They add simple
+            functionality to much of the JavaScript language.
+          </li>
+        </ul>
         <h3>Modular JavaScript</h3>
+        <ul>
+          <li>
+            <strong>Module</strong> - Definition: a self-contained piece of code
+            that provides functions and methods that can then be used in other
+            files and by other modules.
+          </li>
+          <li>
+            Code in a module should have a single purpose. For example, keep
+            functions fused for Ajax in one module. This could then be used in
+            any project using Ajax.
+          </li>
+          <li>
+            The goal of modules is to keep code <i>loosely coupled</i> and
+            therefore interchangeable.
+          </li>
+          <li>
+            Modules must list what they export to other files. Modules can
+            export variables, functions, and objects. For example:<br />
+            <code
+              >export {()=>{return 2}, AnObject = {}, const foo = 'bar'};</code
+            >
+          </li>
+          <li>
+            The syntax for importing a module is:
+            <code>import {foo} from './path/to/module/bar.js'</code>
+          </li>
+        </ul>
         <h3>MVC Frameworks</h3>
+        <ul>
+          <li>
+            (As of Saturday, October 8, 2022 I have not gotten to this portion
+            of the reading. I plan on finishing the rest of this chapter on
+            Monday)
+          </li>
+        </ul>
         <h3>Templates</h3>
+        <ul>
+          <li></li>
+        </ul>
         <h3>Package Managers</h3>
+        <ul>
+          <li></li>
+        </ul>
         <h3>Deploying JavaScript</h3>
+        <ul>
+          <li></li>
+        </ul>
       </div>
     </main>
     <footer>
