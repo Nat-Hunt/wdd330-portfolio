@@ -327,8 +327,8 @@
       <button onclick="showOutput('chapter15')">
         Chapter 15: Modern JavaScript Development</button
       ><br />
-      <div class="output" id="chapter15">
-        <!-- <div> -->
+      <!-- <div class="output" id="chapter15"> -->
+      <div>
         <h2>Chapter 15: Modern JavaScript Development</h2>
         <h3>Libraries</h3>
         <ul>
@@ -395,26 +395,308 @@
             The syntax for importing a module is:
             <code>import {foo} from './path/to/module/bar.js'</code>
           </li>
+          <li>
+            You can define a default export for a module by using the keyword
+            'default' like this: <br /><code> export default FOO; </code><br />
+            NOTE: default exports can only export a <i>single</i> variable,
+            function, or class. This does allow you to forgo explicitly naming
+            the export value that you want imported.
+          </li>
+          <li>
+            To import a default value, this is the syntax:
+            <code>import FOO from './path/to/module/bar.js'</code>
+          </li>
+          <li>You can assign an alias to the default import</li>
+          <li>
+            Node.js Modules
+            <ul>
+              <li>
+                Node.js implemented modules before ES6 and use the Common JS
+                modules notation. Currently, there has not been a way to merge
+                ES6 module notation and Common JS modules notation.
+              </li>
+              <li>
+                This is the syntax for exporting from a file using Common JS:
+                <code>module.exports = foo</code>
+              </li>
+              <li>
+                This is the syntax for importing from a file using Common JS:<br /><code
+                  >cost bar = require('./path/to/module/bar.js')</code
+                >
+              </li>
+            </ul>
+          </li>
         </ul>
         <h3>MVC Frameworks</h3>
         <ul>
           <li>
-            (As of Saturday, October 8, 2022 I have not gotten to this portion
-            of the reading. I plan on finishing the rest of this chapter on
-            Monday)
+            MVC stands for Model-View-Controller and it is a design pattern
+          </li>
+          <li>
+            MVC seaprates an application into three components that interact
+            with each other. The Models, the Views, and the Controllers.
+          </li>
+          <li>
+            Models: objects that implement CRUD tasks and any other associated
+            logic and behavior. This is the part that usually interacts with the
+            database.
+          </li>
+          <li>
+            Views: create and update the visual representation of the model.
+            This is what the user interacts with.
+          </li>
+          <li>
+            Controllers: the link between models and views. Controllers respond
+            to events and user input, process the information, then update the
+            models and views.
+          </li>
+          <li>
+            <span>list.html</span>
+            <iframe src="./examples/mvc/list.html"></iframe>
+          </li>
+          <li>
+            <span>main.js</span>
+            <iframe src="./examples/mvc/main.js"></iframe>
+          </li>
+          <li>
+            MV* Frameworks make following the MVC pattern easier. 3 common ones
+            are:
+            <ul>
+              <li>
+                <a href="http://aurelia.io/">Aurelia</a>: Uses ES6. Focuses on
+                dynamic web applications with background implementation details
+              </li>
+              <li>
+                <a href="https://angular.io/">Angualar</a>: Framework written by
+                Google. Extends the HTML language using custom
+                <code>ng-</code> attributes
+              </li>
+              <li>
+                <a href="https://emberjs.com/">Ember</a>: Designed to ease the
+                process of building large web applications. Uses common
+                conventions to avoid needing loads of set-up code (which can be
+                a problem if you don't follow those conventions)
+              </li>
+            </ul>
           </li>
         </ul>
         <h3>Templates</h3>
         <ul>
-          <li></li>
+          <li>
+            Templating languages are used to insert dynamic data into the page.
+            Some use HTML, others use another coding language that compiles into
+            HTML.
+          </li>
+          <li>
+            Often, templates are used to update only a part of the page rather
+            than the whole thing. This reduces the number of HTTP requests
+            needed and doesn't require the large amount of resources needed to
+            process large strings of HTML
+          </li>
+          <li>
+            The templates are usually stored in a separate file or their own
+            script tag.
+          </li>
+          <li>
+            Some common template languages:
+            <ul>
+              <li>
+                <a href="https://github.com/janl/mustache.js">Mustache</a>
+              </li>
+              <li>
+                <a href="https://github.com/pugjs/pug">Pug</a>
+              </li>
+              <li>
+                <a href="https://handlebarsjs.com/">Handlebars</a>
+              </li>
+              <li>
+                <a href="https://ejs.co/">EJS</a>
+              </li>
+              <li>
+                <a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            The W3C is currently developing a standard called
+            <a href="https://www.webcomponents.org/introduction"
+              >Web Components</a
+            >. The goal is to extend HTML by implementing tempaltes, custom
+            tags, importing HTML partials, and creating a shadow DOM.
+          </li>
+          <li>
+            View Libraries:
+            <ul>
+              <li><a href="https://reactjs.org/">React.js</a></li>
+              <li><a href="https://vuejs.org/">Vue.js</a></li>
+              <li><a href="https://svelte.dev/">Svelte</a></li>
+              <li><a href="https://www.infernojs.org/">Inferno</a></li>
+              <li><a href="https://github.com/anthonyshort/deku">Deku</a></li>
+              <li><a href="https://preactjs.com/">Preact</a></li>
+              <li>
+                <a href="https://github.com/Matt-Esch/virtual-dom"
+                  >Virtual-DOM</a
+                >
+              </li>
+              <li><a href="https://moonjs.org/">Moon</a></li>
+            </ul>
+          </li>
         </ul>
         <h3>Package Managers</h3>
         <ul>
-          <li></li>
+          <li>
+            These are used to manage JavaScript modules. Information regarding
+            installed packages in an application are stored in a package.json
+            file.
+          </li>
+          <li>
+            Package managers simplify the process of installing, upgrading, and
+            removing packages/modules used in a project.
+          </li>
+          <li>They also help with dependency management</li>
+          <li>
+            <a href="https://www.npmjs.com/">npm</a>, Node Package Manager, is a
+            package manager developed shortly after Node.js.
+          </li>
         </ul>
         <h3>Deploying JavaScript</h3>
         <ul>
-          <li></li>
+          <li>
+            If you have more than 1 JavaScript file, then the best way to
+            include them in your HTML file is to bundle and minify all of your
+            javascript files together. The typical naming convention for this is
+            'bundle.min.js'. Put this in a <code>script</code> tag on the line
+            beofre the closing <code>body</code> tag.
+          </li>
+          <li>
+            Code Transpilers convert code into JavaScript, allowing for browsers
+            that may be behind-the-curve on their JavaScript implementation to
+            service developers who want to use the latest and greatest.
+            <strong><a href="https://babeljs.io/">Babel</a></strong> is the most
+            pupular transpilar for converting ES6 into older versions.
+          </li>
+          <li>
+            Minification removes unnecessary characters to reduce file size.
+            This includes whitespace, all comments, and other surperfluous
+            characters. Popular minifiers include:
+            <ul>
+              <li>
+                <a href="https://www.npmjs.com/package/yui">YUI Compressor</a>
+              </li>
+              <li>
+                <a href="https://developers.google.com/closure/compiler/"
+                  >Google's Closure</a
+                >
+              </li>
+              <li><a href="https://github.com/mishoo/UglifyJS">UglifyJs</a></li>
+            </ul>
+          </li>
+          <li>
+            Typical folder structure by type:
+            <ul>
+              <li>
+                src
+                <ul>
+                  <li>CSS</li>
+                  <li>JS</li>
+                  <li>views</li>
+                  <li>tests</li>
+                </ul>
+              </li>
+              <li>
+                dist
+                <ul>
+                  <li>index.html</li>
+                  <li>bundle.min.js</li>
+                </ul>
+              </li>
+              <li>package.json</li>
+              <li>node_modules</li>
+              <li>README</li>
+            </ul>
+          </li>
+          <li>
+            Typical folder structure by Module:
+            <ul>
+              <li>
+                src
+                <ul>
+                  <li>index.html</li>
+                  <li>
+                    lib
+                    <ul>
+                      <li>app</li>
+                      <li>app.js</li>
+                      <li>app.css</li>
+                      <li>
+                        app.test.js
+                        <ul>
+                          <li>moduleA</li>
+                        </ul>
+                      </li>
+                      <li>moduleA.html</li>
+                      <li>moduleA.js</li>
+                      <li>moduleA.css</li>
+                      <li>
+                        moduleA.test.js
+                        <ul>
+                          <li>moduleB</li>
+                        </ul>
+                      </li>
+                      <li>moduleB.html</li>
+                      <li>moduleB.js</li>
+                      <li>moduleB.css</li>
+                      <li>moduleB.test.js</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                dist
+                <ul>
+                  <li>index.html</li>
+                  <li>bundle.min.js</li>
+                </ul>
+              </li>
+              <li>package.json</li>
+              <li>node_modules</li>
+              <li>README</li>
+            </ul>
+          </li>
+          <li>
+            Webpack: a module bundler that takes all .js files in a project and
+            bundles them together in one file
+            <ul>
+              <li>
+                Uses the concept of 'loaders', allowing you to do tasks like:
+                <ul>
+                  <li>transpiling code</li>
+                  <li>minifying code</li>
+                  <li>linting code</li>
+                  <li>testing code</li>
+                  <li>
+                    compiling CSS preprocessor files (Sass, Less, Stylus) into
+                    standard CSS files
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Also lets you compile multiple CSS and image files into a single
+                folder.
+              </li>
+              <li>
+                documentation
+                <a href="https://webpack.js.org/configuration/">here</a>
+              </li>
+              <li>
+                Example of Webpack using webpack contained in the following
+                directory:
+                <a href="./examples/webpack/webpack.html"
+                  >./examples/webpack/webpack.html</a
+                >
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     </main>
@@ -423,8 +705,8 @@
       <span id="year"></span>
       <span id="last-update"></span>
     </footer>
+    <script src="js/main.js"></script>
+    <script src="../js/copyright.js"></script>
+    <script src="./examples/chapter12.js"></script>
   </body>
-  <script src="js/main.js"></script>
-  <script src="../js/copyright.js"></script>
-  <script src="./examples/chapter12.js"></script>
 </html>
