@@ -1,0 +1,23 @@
+{
+  "name": "wdd330-portfolio",
+  "version": "1.0.0",
+  "description": "WDD330 Web Frontend Dev II course Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nat-Hunt/wdd330-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nat-Hunt/wdd330-portfolio/issues"
+  },
+  "homepage": "https://github.com/Nat-Hunt/wdd330-portfolio#readme",
+  "dependencies": {
+    "jest": "^29.1.2"
+  }
+}

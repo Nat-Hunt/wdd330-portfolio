@@ -22,11 +22,290 @@
       <h3>Chapter 10</h3>
     </header>
     <main>
-      <button onclick="showOutput('chapter10')">Chapter 10: Testing and Debugging</button><br />
-      <div class="output" id="chapter10">
+      <div>
         <h2>Chapter 10: Testing and Debugging</h2>
-        <h3></h3>
-        
+        <h3>Errors, Exceptions, and Warnings</h3>
+        <ul>
+          <li>
+            Typically fall under 3 different types:
+            <ul>
+              <li>
+                System Error: a problem with the system/devices that the program
+                is interacting with.
+              </li>
+              <li>
+                Programmer Error: incorrect syntax or faulty logic within the
+                code. Might be as simple as a typo.
+              </li>
+              <li>
+                User Error: the end-user input data incorrectly and the program
+                couldn't handle it
+              </li>
+            </ul>
+          </li>
+          <li>
+            Developers have no say in how external systems work, so we can't fix
+            those errors, but we can do our best to plan around them so that
+            they only minimally impact our user's experience.
+          </li>
+          <li>
+            Programmer errors are our responsibility. They should be minimized
+            before the product is released and as soon as they are found, they
+            should be fixed promptly.
+          </li>
+          <li>
+            We should be cognizant of potential user errors while developing our
+            applications and plan for as many as possible by limiting the
+            potential errors and providing useful feedback
+          </li>
+          <li>
+            Exceptions are errors which have a return value. The program can
+            deal with this error and should be planned for.
+          </li>
+          <li>
+            Stack traces show the path from where the error occured to where the
+            sequence started.
+          </li>
+          <li>
+            Warnings don't stop the program from running, but may cause the
+            program to execute improperly and cause unforseen issues.
+          </li>
+        </ul>
+        <h3>The Importance of Testing and Debugging</h3>
+        <ul>
+          <li>
+            Extremely. Errors caught and tested out in development save valuable
+            time and resources in production
+          </li>
+          <li>Errors in development should be loud and easily found.</li>
+          <li>
+            Errors in production should be less loud, but just as easily found
+          </li>
+        </ul>
+        <h3>Strict Mode</h3>
+        <ul>
+          <li>syntax: <code>'use strict';</code></li>
+          <li>
+            Strict Mode produces more exceptions and warnings. It also prohibits
+            some deprecated features from being used.
+          </li>
+          <li>
+            Linting tools help enforce coding best practices and style guides
+            beyond just strict mode.
+          </li>
+        </ul>
+        <h3>Feature Detection</h3>
+        <ul>
+          <li>
+            Not all browsers support the latest and greatest, so feature
+            detection is useful to prevent errors. It is done by wrapping the
+            call to the feature inside an <code>if</code> block.
+          </li>
+          <li>
+            Syntax:
+            <code>if (window.holoDeck){ virtualReality.activate(); }</code
+            ><br />The <code>window.holoDeck</code> call will evaluate to false
+            if it doesn't exist in the user's browser and all subsequent
+            non-existant methods will not be called. However, if
+            <code>virtualReality.activate();</code> is called outside of the
+            if-block, an error will occur.
+          </li>
+          <li>
+            Useful links:
+            <ul>
+              <li>
+                <a href="https://modernizr.com/docs">Modernizr</a>: a library
+                that makes feature detection easy.
+              </li>
+              <li>
+                <a href="https://caniuse.com/">Can I Use?</a>: a website to
+                check which features are supported on which broswers.
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h3>Debugging in the Browser</h3>
+        <ul>
+          <li>Useful for running through the code line-by-line</li>
+          <li>
+            Useing the <code>alert()</code> method is basic and useful since it
+            stops a program from running until it is acknowledged. However,
+            there are better ways and the use of the alert() method is
+            discouraged in general.
+          </li>
+          <li>
+            The <code>console</code> object is not technically part of the
+            ECMAScript specification, but is well supported in all major
+            browsers and Node.js
+          </li>
+          <li>
+            <code>console.log()</code> prints a string to the console, but
+            doesn't stop the program.
+          </li>
+          <li>
+            <code>console.trace()</code> logs an interactive stack trace in the
+            console.
+          </li>
+          <li>
+            Some more useful methods of the Console object
+            <a
+              href="https://www.sitepoint.com/three-little-known-development-console-api-methods/"
+              >here</a
+            >
+          </li>
+          <li>
+            Most modern broswers also have a debugging tool that allows
+            breakpoints to be set. This is a list of the debugger documentation
+            for major browsers:
+            <ul>
+              <li>
+                <a
+                  href="https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html"
+                  >Firefox</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/"
+                  >Edge</a
+                >
+              </li>
+              <li>
+                <a href="https://developer.chrome.com/docs/devtools/">Chrome</a>
+              </li>
+              <li>
+                <a
+                  href="https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Debugger/Debugger.html"
+                  >Safari</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong
+              >REMEMBER TO REMOVE DEBUGGING CODE PRIOR TO SHIPPING!!!</strong
+            >
+          </li>
+        </ul>
+        <h3>Error Objects</h3>
+        <ul>
+          <li>
+            The host environment can create one or it can be created in the code
+            using a constructor. This is the syntax to create it:
+            <code>const foo = new Error('Oops, something went wrong');</code>
+          </li>
+          <li>
+            The other seven error objects for more specific errors (they can
+            also be used as constructors):
+            <ul>
+              <li>
+                <code>EvalError</code>: not used in teh current ECMAScript and
+                only kept for backwards compatibility. Was used in reference to
+                errors produced with the global <code>eval()</code> function.
+              </li>
+              <li>
+                <code>RangeError</code>: thrown when a number is outside a range
+                of values
+              </li>
+              <li>
+                <code>ReferenceError</code>: thrown when a reference is made to
+                an item that doesn't exist. (ex: calling a function that hasn't
+                been defined).
+              </li>
+              <li>
+                <code>SyntaxError</code>: thrown when an error in the code's
+                syntax is detected.
+              </li>
+              <li>
+                <code>TypeError</code>: thrown when the type of a value does not
+                match what is expected (ex: a string is used when a number is
+                expected).
+              </li>
+              <li>
+                <code>URIError</code>: thrown when there's a problem encoding or
+                decoding the URI.
+              </li>
+              <li>
+                <code>InternalError</code>: non-standard error thrown when an
+                error happens in the JavaScript engine (ex: too much recursion).
+              </li>
+            </ul>
+          </li>
+          <li>
+            Error object properties that are generally supported accross
+            browsers:
+            <ul>
+              <li>
+                <code>name</code>: the name of the error constructor function as
+                a string
+              </li>
+              <li>
+                <code>message</code>: a description of the error, usually
+                provided as an argument to the constructor function
+              </li>
+              <li>
+                <code>stack</code>: returns a stack trace for that error. This
+                is non-standard and is not recommended safe for production sites
+              </li>
+            </ul>
+          </li>
+          <li>
+            Exceptions can be thrown manually at anytime using the
+            <code>throw</code> statement. It is best practice to throw an error
+            object. for example:<br />
+            <code
+              >throw new RangeEror('the number you tried is out of range')</code
+            >
+          </li>
+        </ul>
+        <h3>Exception Handling</h3>
+        <ul>
+          <li>
+            When exceptions are thrown, the program stops with an error message.
+            This is helpful in development, but harmful in production
+          </li>
+          <li>
+            In production, use the <code>try-catch(error)-finally</code> blocks
+            to gracefully handle exceptions
+          </li>
+          <li>
+            <code>try</code> attempts a piece of code, if an exception is thrown
+            then the <code>catch(error)</code> block activates and we can query
+            the <code>error</code> passed to it for information and handle the
+            exception accordingly. The <code>finally</code> block will execute
+            regardless of whether the <code>try</code> block or the
+            <code>catch</code> block executed.
+          </li>
+        </ul>
+        <h3>Tests</h3>
+        <ul>
+          <li>
+            Test-driven development (TDD) is a coding philosophy where the idea
+            is to write the tests before the code. It follows this process (the
+            "red-green-refactor" cycle):<br />
+            1) Write tests (that initially fail)<br />
+            2) Write code to pass the tests <br />
+            3) Refactor the code (make it faster, more readable,
+            non-repetitive)<br />
+            4) Test refarctored code <br />
+            5) Write more tests for new features
+          </li>
+          <li>
+            TDD is best practice, but it isn't always pragmatic since it is a
+            long, laborious process.
+          </li>
+          <li>
+            Testing Frameworks are used to reduce the need to create custom
+            testing functions. <a href="https://jestjs.io/">Jest</a> is a
+            popular TDD framework created by Facebook. This is an example of how
+            to use it <iframe src="./examples/squareRoot.test.js"></iframe>
+          </li>
+          <li>
+            An example of the TDD process Using Jest:
+            <iframe src="./examples/numberCruncher.test.js"></iframe>
+          </li>
+        </ul>
+      </div>
     </main>
     <footer>
       <a href="..">Return Home</a>
@@ -36,5 +315,4 @@
   </body>
   <script src="js/main.js"></script>
   <script src="../js/copyright.js"></script>
-  <!-- <script src="./examples/chapter12.js"></script> -->
 </html>
