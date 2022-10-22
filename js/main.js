@@ -19,6 +19,10 @@ const linksBlock1 = [
     label: "Week5 notes",
     url: "./week5/",
   },
+  {
+    label: "Challenge One: To Do",
+    url: "./challenge_one_to_do/",
+  },
 ];
 // const linksBlock2 = [
 //     {

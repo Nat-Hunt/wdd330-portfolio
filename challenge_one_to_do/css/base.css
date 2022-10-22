@@ -1,0 +1,109 @@
+:root {
+    /* pallet source https://coolors.co/7d7c7a-0b1d51-eaf6ff-ffd700 */
+    --primary-color: #7D7C7A; /* Gray Web */
+    --secondary-color: #0B1D51; /* Royal Blue Dark */
+    --accent1-color: #EAF6FF; /* Alice Blue */
+    --accent2-color: #FFD700; /* Gold Web Golden */
+  
+    /* change the values below to your chosen font(s) */
+    --heading-font: "Courier", monospace;
+    --paragraph-font: Arial, Helvetica, sans-serif;
+
+    --background-color: #EAF6FF
+  }
+/* Header layout, main, footer centering */
+header, main, footer, body {
+    max-width: 300px;
+    margin: 0 auto;
+    background-color: var(--background-color);
+}
+
+/* Generic Styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+}
+p, li, button, label, input, span {
+    font-family: var(--paragraph-font);
+}
+h1 {
+    margin: 0 auto;
+}
+/* Main Styles */
+main {
+    border: 1px solid black;
+    background-color: var(--background-color);
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 0 0 5px 0;
+}
+ul#taskList {
+    margin-top: 0;
+    margin-bottom: 3px;
+    grid-column: 1 / -1;
+    list-style-type: none;
+    padding-left: 0;
+}
+ul#taskList li {
+    display: grid;
+    grid-template-columns: .2fr 1fr 1fr;
+    border-bottom: 1px solid black;
+    padding: 5px;
+    align-items: center;
+}
+#taskList li button {
+    border: none;
+    background-color: var(--background-color);
+    justify-self: end;
+}
+ul#taskList li button:hover {
+    transition: 1s;
+    -webkit-transition: 1s;
+    transform: rotate(360deg);
+}
+
+main button {
+    border: none;
+    background-color: var(--background-color);
+}
+main button:hover {
+    cursor: pointer;
+}
+#numTasksLeft {
+    font-size: 13px;
+    padding-left: 4px;
+}
+
+main input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+main label {
+    display: inline-block;
+    justify-self: center;
+}
+main input[type="radio"]:checked + label {
+    /* background-color:#bfb;
+    border-color: #4c4; */
+    border: 1px solid black
+}
+
+/* Footer Styles*/
+footer {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 3px;
+}
+
+
+/* Dynamic Classes */
+.strikethrough {
+    text-decoration: line-through;
+    max-width: 100%;
+}
+.hide {
+    display: none;
+}

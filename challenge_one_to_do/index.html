@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      description="Notes on JavaScript:Novice to Ninja, 2nd Edition chapter 10"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <title>Challenge One | Todo</title>
+    <link rel="stylesheet" href="./css/base.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Todos</h1>
+    </header>
+    <main>
+      <ul id="taskList"></ul>
+      <span id="numTasksLeft"></span>
+
+      <input type="radio" id="all" name="sortBy" value="all" />
+      <label for="all">All.</label>
+
+      <input type="radio" id="active" name="sortBy" value="active" />
+      <label for="active">Active.</label>
+
+      <input type="radio" id="complete" name="sortBy" value="complete" />
+      <label for="complete">Complete.</label>
+    </main>
+    <footer>
+      <input type="text" id="taskEntry" placeholder="Task name" />
+      <button type="button" id="taskEntryButton">+</button>
+      <!-- <a href="..">Return Home</a>
+      <span id="year"></span>
+      <span id="last-update"></span> -->
+    </footer>
+  </body>
+  <script type="module" src="./js/Todos.js"></script>
+  <script type="module" src="./js/ls.js"></script>
+  <script type="module" src="./js/utilities.js"></script>
+  <script type="module" src="./js/main.js"></script>
+  <!-- <script src="../js/copyright.js"></script> -->
+</html>
