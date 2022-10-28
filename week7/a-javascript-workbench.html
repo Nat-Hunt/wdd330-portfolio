@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<script src="./js/eloquent-js-code-examples/18_http.js"></script>
+
+<textarea id="code">return "hi";</textarea>
+<button id="button">Run</button>
+<pre id="output"></pre>
+
+<script>
+  function displayOutput() {
+    let codeInput = document.getElementById("code").value;
+    let result = Function(codeInput)();
+    document.getElementById("output").innerText = String(result);
+  }
+  document.getElementById("button").addEventListener("click", displayOutput);
+</script>
