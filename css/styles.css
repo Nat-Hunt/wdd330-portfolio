@@ -1,9 +1,9 @@
 :root {
     /* pallet source https://coolors.co/7d7c7a-0b1d51-eaf6ff-ffd700 */
-    --primary-color: #7D7C7A; /* Gray Web */
-    --secondary-color: #0B1D51; /* Royal Blue Dark */
-    --accent1-color: #EAF6FF; /* Alice Blue */
-    --accent2-color: #FFD700; /* Gold Web Golden */
+    --primary-color: rgb(125, 124, 122); /* Gray Web */
+    --secondary-color: rgb(11, 29, 81); /* Royal Blue Dark */
+    --accent1-color: rgb(234, 246, 255); /* Alice Blue */
+    --accent2-color: rgb(255, 215, 0); /* Gold Web Golden */
   
     /* change the values below to your chosen font(s) */
     --heading-font: "Courier", monospace;

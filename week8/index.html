@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      description="Notes on JavaScript:Novice to Ninja, 2nd Edition chapter 10"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <title>Week 8 | Notes</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Week 8 Notes</h1>
+      <h2>HTML5 and CSS3 For the Real World: 2nd Edition</h2>
+      <h3>Chapter 8: Transforms and Transitions</h3>
+      <h3>Chapter 12: Canvas, SVG, and Drag and Drop</h3>
+    </header>
+    <main>
+      <button onclick="showOutput('chapter8')">
+        Chapter 8: Transforms and Transitions
+      </button>
+      <br />
+      <div class="output" id="chapter8">
+        <h2>Chapter 8: Transforms and Transitions</h2>
+        <div>
+          <h3>Transforms</h3>
+          <p>
+            The <code>transform</code> property is used to translate, rotate,
+            scale, and skew any element. CSS3 provides more nuanced control of
+            previously existing CSS features. Multiple transform functions
+            (separated by spaces) can be applied at once, they will be applied
+            in the order they're provided. All modern browsers (starting with
+            IE10 and Android 3) support 3D transformations too, but only 2D
+            transformations are covered here.
+            <strong
+              >Note: transforms do not work on inline elements, they must be
+              block elements</strong
+            >
+          </p>
+
+          <hr />
+          <h4>Translation</h4>
+          <p>
+            Translation functions are used to move an element left, rught, up or
+            down. These functions allow you to move an elemnt without impacting
+            the flow of the document. They can only be moved relative to their
+            current position, not their parent/ancestor.
+          </p>
+          <p>Syntax: <br /><code>transform: translate(45px, -45px);</code></p>
+          <p>
+            If only vertical or horizontal movement is required, then use
+            <code>translatex</code> or <code>translatey</code> respectivley.
+          </p>
+          <code>transform: translateX(45px);</code>
+          <code>transform: translateY(45px);</code>
+
+          <h5>Note: Transforms and Older Browsers</h5>
+          <p>
+            Include the following when working with IE9, Android up to 4.4.3,
+            iOS8, and Blackbery 10:
+            <br />
+            <code>
+              -webkit-transform: translate(); /* iOS8, Android 4.4..3, BB10 */
+            </code>
+            <br />
+            <code> -ms-transform: translate() /* IE9 only */ </code>
+          </p>
+
+          <hr />
+          <h4>Scaling</h4>
+          <p>
+            <code>scale(x,y)</code> scales an element horizontally then
+            vertically. If only one value is provided, then it'll be used for
+            the <code>x</code> and <code>y</code> values while maintaining it's
+            original aspect ratio. You can also use <code>scaleX(x)</code> or
+            <code>scaleY(y)</code> to only scale the specific dimensions. A
+            scaled element will grow or shrink with respect to its center. This
+            can be changed using the <code>transform-origin</code> property.
+          </p>
+          <p>Syntax: <br /><code>transform: scale(1.5);</code></p>
+
+          <hr />
+          <h4>Rotation</h4>
+          <p>
+            <code>rotate()</code> rotates an element around the point of origin
+            according to the specified angle value. The default point of origin
+            is the element's center. Angles are declared in degrees, positive
+            creates clockwise movement, negative creates counterclockwise
+            movement. Values can also be provided in grads, radians, or turns.
+          </p>
+          <p>Syntax: <br /><code>transform: rotate(10deg);</code></p>
+
+          <hr />
+          <h4>Skew</h4>
+          <p>
+            <code>skew(x,y)</code> creates a skew along the x and y axes. If
+            only one parameter is provided, the skew will only happen along the
+            x axis. Also has the <code>skewX()</code> and
+            <code>skewY()</code> options
+          </p>
+          <p>Syntax: <br /><code>transform: skew(15deg, 4deg);</code></p>
+
+          <hr />
+          <h4>Changing the Origin of the Transform</h4>
+          <p>
+            The <code>transform-origin</code> property can be used to control
+            the point form which transforms are applied to an element. It has
+            the same syntax as the <code>background-position</code> property.
+          </p>
+          <p>Syntax: <br /><code>transform-origin: 0 0;</code></p>
+
+          <hr />
+          <h4>Note: Choose Your Ordering Carefully</h4>
+          <p>
+            The order of the <code>transform</code> functions is extremely
+            important. For example, if you rotate first then translate, the
+            translate directions will be on the rotated axis, not the original
+            axis.
+          </p>
+
+          <hr />
+          <h4>Support for Internet Explorer 8 and Earlier</h4>
+          <p>
+            Before IE 9, transforms are unsupported, but mimicable using filters
+            and relative positioning
+          </p>
+        </div>
+
+        <div>
+          <hr />
+          <h3>Transitions</h3>
+          <p>
+            Transitions generally require less client-side processing and are
+            often a better choice than JavaScript animations. They do not
+            function on any Internet Explorer earlier than 10, but they are UI
+            enhancements and fail accessibly, so that doesn't matter as much.
+            <br />
+            Transitions allow for change over time to an CSS property
+            (essentially, they're simple animations). These are the steps to
+            create a simple transition using only CSS
+          </p>
+          <ol>
+            <li>Declare the original state of the element</li>
+            <li>Declare the final state of the transitioned element</li>
+            <li>
+              Include teh transition functions in the default style declaration
+              using the translation properties:
+              <code>transition-property</code>,
+              <code>transition-duration</code>,
+              <code>transition-timing-function</code>, and
+              <code>transition-delay</code>
+            </li>
+          </ol>
+          <p>
+            the transition is declared in the default (originating) state. Also,
+            the <code>-webkit-</code> vendor prefix is necessary for older
+            mobile devices (iOS6.1, BlackBerry10, Android4.3, and UC Browser for
+            Android)
+          </p>
+
+          <hr />
+          <h4><code>transition-property</code></h4>
+          <p>
+            This defines the CSS properties of the element that will be
+            transitioned. <code>all</code> for the properties is the default.
+            Any changing property with a valid midpoint can be transitioned.
+            Color and size can be transitioned, but something like
+            <code>border-style</code> changing from solid to dashed can't since
+            there is no midpoint. A full list of properties that can be
+            transitioned can be found here:
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties"
+              >https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties</a
+            >
+            <br />
+            Multiple properties can be added to
+            <code>transition-property</code> separated by commas. Or you can use
+            <code>all</code> so that every supported property is animated.
+            Without specifying the duration of the transition, nothing will
+            happen.
+          </p>
+          <p>
+            Syntax: <br /><code
+              >transition-property: transform, skew, color;</code
+            >
+          </p>
+
+          <hr />
+          <h4>Note: Supporting Older Browsers</h4>
+          <p>
+            Syntax: <br /><code
+              >-webkit-transition-property: -webkit-transform;</code
+            ><br /><code>transition-property: transform;</code>
+          </p>
+
+          <hr />
+          <h4>The transition-duration Property</h4>
+          <p>
+            <code>transition-duration</code> determines how long the transition
+            will take. Can be specified in seconds (<code>s</code>) or
+            milliseconds (<code>ms</code>). 200ms is usually the best duration
+            for a transition, going slower tends to make the website seem slow
+            (even if it isn't), going faster may not be noticed.
+          </p>
+          <p>Syntax: <br /><code>transition-duration: 0.2s;</code></p>
+
+          <hr />
+          <h4>The transition-timing-function Property</h4>
+          <p>
+            <code>transition-timing-function</code> allows for controlling the
+            pace of the transition in great detail (start slow then become fast,
+            start fast then become slow, etc.). These are the most common timing
+            function key terms:
+          </p>
+          <ul>
+            <li>
+              <code>ease</code> => slow start, then speeds up and ends slowly
+            </li>
+            <li>
+              <code>linear</code> => a transition that animates at a constant
+              speed
+            </li>
+            <li>
+              <code>ease-in</code> => a transition that's slow to start, gains
+              speed, then abruptly stops
+            </li>
+            <li>
+              <code>ease-out</code> => starts at full speed, gradually slows
+            </li>
+            <li>
+              <code>ease-in-out</code> => similar to ease, but accelerates
+              quicker in the beginning
+            </li>
+          </ul>
+          <p>
+            Usually, it's helpful to make the duration long when testing these
+            out. You can create your own timing functions by defining yor own
+            <code>cubic-bezier</code> function (syntax:
+            <code>cubic-bezier(0, 0, 1, 1)</code> [this creates a linear timing
+            function]). This is an advanced calculus concept. Some useful
+            resources for this:
+          </p>
+          <ul>
+            <li>
+              <a href="https://cubic-bezier.com/">https://cubic-bezier.com/</a>
+            </li>
+            <li>
+              <a
+                href="http://estelle.github.io/animation/files/cubicbezierprint.html"
+                >http://estelle.github.io/animation/files/cubicbezierprint.html</a
+              >
+            </li>
+          </ul>
+          <p>
+            The <code>steps(n, end)</code> function can be used to step through
+            the animation with a number of equidistant steps equal to
+            <code>n</code> with either the first step occuring at the start
+            (replace <code>end</code> with <code>start</code>), or the last step
+            occuring at the end (leave <code>end</code>).
+          </p>
+
+          <hr />
+          <h4>The transition-delay Property</h4>
+          <p>
+            <code>transition-delay</code> is used to delay the start of a
+            transition. Takes either seconds (<code>s</code>) or milliseconds
+            (<code>ms</code>). Useful if you don't want the animation to fire
+            when the user is inadvertantly triggering the new state.
+          </p>
+
+          <hr />
+          <h4>Tip: Negative Delays</h4>
+          <p>
+            Negative delays that're less than the duration of the entire
+            transition will fire the transition immediately, but start it
+            partway through the animation. Example: a dealy of -500ms on a 2s
+            transition will start at .5 seconds and play for 1.5 seconds.
+          </p>
+
+          <hr />
+          <h4>The transition Shorthand Property</h4>
+          <p>
+            Example:
+            <code
+              >.ad-ad2 h1 span {<br />
+              transition-property: transform; <br />
+              transition-duration: 0.2s;<br />
+              transition-timing-function: ease-out; <br />
+              transition-delay: 50ms; }</code
+            >
+            <br />can be changed to:<br />
+            <code
+              >.ad-ad2 h1 span {<br />
+              transition: transform 0.2s ease-out 50ms; }</code
+            >
+          </p>
+
+          <hr />
+          <h4>Multiple Transitions</h4>
+          <p>
+            The <code>transition</code> property can be used for multiple
+            transitions in one call. This is done by using separating each
+            transition by a comma. Each subsequent transition-property
+            declaration will need a comma separated property for each
+            transitioned element. Example: <br />
+            <code
+              >transition-property: transform, color; <br />
+              transition-duration: 0.2s, 0.1s; <br />
+              transition-timing-function: ease-out, linear;<br />
+              transition-delay: 50ms;</code
+            ><br />
+            Or if using shorthand: <br />
+            <code
+              >transition: transform 0.2s ease-out 50ms, color 0.1s linear
+              50ms;</code
+            >
+            If you leave the extra declarations out, then the same transitions
+            will be applied to each element.
+          </p>
+        </div>
+
+        <div>
+          <hr />
+          <h3>Animations</h3>
+          <p>
+            CSS animations allow for control of each step of animation (unlike
+            transitions) by using keyframes.
+          </p>
+
+          <hr />
+          <h4>Keyframes</h4>
+          <p>
+            First, create a named animation, then attach it to an element in its
+            property declaration block. The <code>@keyframes</code> rule is used
+            for IE10+ and FF16+. Include the <code>@-webkit-keyframes</code> for
+            all WebKit implementations then a name used as an ID for that
+            animation. Then each keyframe can be specified.
+          </p>
+          <p>Syntax: <br /></p>
+          <!-- prettier-ignore -->
+          <pre>
+@keyframes moveRight { 
+    from {
+    transform: translateX(-50%);
+    }
+    to {
+    transform: translateX(50%);
+    }
+}
+
+@keyframes appearDisappear { 
+    0%, 100% {
+    opacity: 0;
+    }
+    20%, 80% {
+    opacity: 1;
+    }
+}
+
+@keyframes bgMove {
+    100% {
+    background-position: 120% 0;
+    }
+}
+            </pre>
+
+          <hr />
+          <h4>Animation Properties</h4>
+          <ul>
+            <li>
+              <code>animation-name: appearDisappear;</code> => used to attach an
+              animation defined in the <code>@keyframes</code> DO NOT USE QUOTES
+              AROUND THE NAME. This is the only required animation property.
+            </li>
+            <li>
+              <code>animation-duration: 300ms;</code> => used to define the
+              length of time (seconds/milliseconds) it takes to complete an
+              animation once from 0% to 100%. This <strong>should</strong> be
+              required since without declaring it, it defaults to 0s
+            </li>
+          </ul>
+
+          <hr />
+          <h4>animation-timing-function</h4>
+          <p>
+            This functions the same as the
+            <code>transition-timing-function</code>
+          </p>
+
+          <hr />
+          <h4>animation-iteration-count</h4>
+          <p>
+            <code>animation-iteration-count</code> allows you to define how many
+            times an animation will play. Typically an integer, but can use
+            decimal points (ending the animation partilly through the
+            iteration), or <code>infinite</code> which prevents it from stoping.
+            Defaults to 1.
+          </p>
+
+          <hr />
+          <h4>animation-direction</h4>
+          <p>
+            Can be used to adjust the normal flow of the animation. Normal flow
+            is 0% => 100%. <code>reverse</code> makes it flow backwords from
+            100% => 0%. <code>alternate</code> makes it alternate from
+            <code>normal</code> to <code>reverse</code> every other iteration.
+            The <code>alternate-reverse</code> functions the same as
+            <code>alternate</code>, but opposite.
+          </p>
+          <p>
+            When animations are reversed, timing functions are also reversed.
+          </p>
+
+          <hr />
+          <h4>animation-delay</h4>
+          <p>
+            <code>animation-delay</code> determines how many
+            seconds/milliseconds to wait before starting the animation
+          </p>
+
+          <hr />
+          <h4>animation-fill-mode</h4>
+          <p>
+            <code>animation-fill-mode</code> determines what happens before the
+            animation begins and what happens when the last iteration finishes.
+            By default, there is no effect. Avaiable values:
+          </p>
+          <ul>
+            <li><code>none</code> => nothing happens. It returns to normal</li>
+            <li>
+              <code>forwards</code> => holds on the ending animation after it
+              has played
+            </li>
+            <li>
+              <code>backwards</code> => holds on the starting animation until
+              triggered to play.
+            </li>
+            <li>
+              <code>both</code> => holds on the starting befire and ending frame
+              after triggering.
+            </li>
+          </ul>
+
+          <hr />
+          <h4>animation-play-state property</h4>
+          <p>
+            <code>animation-play-state</code> defines whether or not an
+            animation is <code>running</code> or <code>paused</code>. Paused
+            displays a static still of the animation until resumed.
+          </p>
+
+          <hr />
+          <h4>The Shorthand animation Property</h4>
+          <p>Example:</p>
+          <pre>
+.verbose {
+    animation-name: appearDisappear; 
+    animation-duration: 300ms; 
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-delay: 5s;
+    animation-fill-mode: backwards;
+    animation-play-state: running;
+}
+
+/* shorthand */
+.concise {
+    animation: 300ms ease-in alternate 5s backwards appearDisappear;
+}
+          </pre>
+          <h5>Warning: Be Careful with Naming</h5>
+          <p>
+            Avoid using key-terms in animation naming since the browser will
+            mistake the first use of a key-term as the term and will not
+            interpret it as a name.
+          </p>
+          <p>An example of multiple animations using shorthand:</p>
+          <pre>
+.target {
+    animation: 
+    animationOne 300ms ease-in backwards, 
+    animationTwo 600ms ease-out 1s forwards;
+}
+          </pre>
+        </div>
+      </div>
+
+      <hr />
+      <button onclick="showOutput('chapter12')">
+        Chapter 12: Canvas, SVG, and Drag and Drop
+      </button>
+      <br />
+      <div class="output" id="chapter12">
+        <h2>Chapter 12: Canvas, SVG, and Drag and Drop</h2>
+        <h3>Canvas</h3>
+        <ul></ul>
+
+        <h3>SVG</h3>
+        <ul></ul>
+
+        <h3>Drag and Drop</h3>
+        <ul></ul>
+      </div>
+    </main>
+    <footer>
+      <a href="..">Return Home</a>
+      <span id="year"></span>
+      <span id="last-update"></span>
+    </footer>
+  </body>
+  <script src="js/main.js"></script>
+  <script src="../js/copyright.js"></script>
+</html>
