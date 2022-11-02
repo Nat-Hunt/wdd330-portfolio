@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+li {
+    display: flex;
+}
+
+ul {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+}
+
+.paginationPages {
+    padding: 3px 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.paginationBtn {
+    list-style: none;
+    display: inline;
+}
+
+#mainDisplay li{
+    padding: 5px;
+    border: 1px solid black;
+    justify-content: center;
+}
+#mainDisplay li:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .2);
+}
