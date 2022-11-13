@@ -66,7 +66,7 @@ linksBlock1.forEach((item) => {
 linksBlock2.forEach((item) => {
   var label = item.label;
   var url = item.url;
-  var ol = document.getElementById("dynamicNavBarBlock1");
+  var ol = document.getElementById("dynamicNavBarBlock2");
   var li = document.createElement("li");
   var a = document.createElement("a");
   a.appendChild(document.createTextNode(label));
