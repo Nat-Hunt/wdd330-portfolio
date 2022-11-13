@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      description="Notes on JavaScript:Novice to Ninja, 2nd Edition chapter 10"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <title>Week 8 | Notes</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+
+    <script src="../js/loadSection.js" defer></script>
+    <script src="../js/copyright.js" defer></script>
+    <script src="./js/week9.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Week 9 Notes</h1>
+      <h2>JavaScript: Novice to Ninja, 2nd Edition</h2>
+      <h3>Chapter 9: The Window Object</h3>
+      <h3>Chapter 14: HTMNL5 APIs</h3>
+      <h3>Modern Front end Development Workflow</h3>
+    </header>
+    <main>
+      <button onclick="showOutput('chapter9')">
+        Chapter 9: The Window Object
+      </button>
+      <br />
+      <div class="output" id="chapter9">
+        <h2>Chapter 9: The Window Object</h2>
+        <ul>
+          <li>
+            JavaScript environments have a <strong>global object</strong>. All
+            global-scope variables are properties of the global object.
+            Functions are methods of it. For browsers, that object is the
+            <code>window</code> object.
+          </li>
+        </ul>
+
+        <h3>The Browser Object Model (BOM)</h3>
+        <ul>
+          <li>
+            collection of properties & methods with info on the browser & device
+            screen.
+          </li>
+          <li>
+            Can be used to check screen dimensions, which pages were visited
+            before this page, or to make pop-up windows.
+          </li>
+          <li>
+            global variables are properties of the window object. For
+            example:<br />
+            <pre>
+x = 6;
+<< 6<br> 
+window.x;
+<< 6<br> 
+window.x === x;
+<< true
+            </pre>
+          </li>
+        </ul>
+
+        <h3>Browser Information</h3>
+        <ul>
+          <li>
+            You can check which browser and OS is being used by accessing
+            <code>window.navigator.userAgent</code> which will return a
+            reference to the Navigator object and then obtain the userAgent
+            information (this tells you browser and OS is being used). It
+            returns this string on my PC: <br />
+            <!-- prettier-ignore -->
+            <code
+              >"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"</code
+            >
+          </li>
+          <li>
+            the userAgent property is deprecated from the official
+            specification, but is still supported in all major browsers
+          </li>
+          <li>
+            <code>window.location</code> is an object with info about the URL of
+            the current page
+            <ul>
+              <li>
+                <code>window.location.href</code> returns the full URL as a
+                string
+              </li>
+              <li>
+                <code>window.location.protocol</code> returns a string with the
+                protocol used (http, https, pop2, ftp, etc.). The string always
+                has a colon at the end.
+              </li>
+              <li>
+                <code>window.location.host</code> returns the domain of the
+                current URL and the port number (omitted if default port 80 is
+                used)
+              </li>
+              <li>
+                <code>window.location.hostname</code> returns the domain of the
+                URL
+              </li>
+              <li>
+                <code>window.location.port</code> returns the port number.
+                Returns and empty string if not specified explicitly in the URL
+              </li>
+              <li>
+                <code>window.location.pathname</code> returns the path to the
+                current URL
+              </li>
+              <li>
+                <code>window.location.search</code> returns a "?" along with the
+                query string parameters
+              </li>
+              <li>
+                <code>window.location.hash</code> returns a "#" followed by the
+                fragment identifier. Returns an empty string if non-existant
+              </li>
+              <li>
+                <code>window.location.origin</code> returns the protocol and
+                domain where the current page originated from. Read-only
+              </li>
+              <li>
+                <code>window.location.reload()</code> forces a reload of the
+                current page. If <code>true</code> is passed in, will reload
+                from the server, not the cache
+              </li>
+              <li>
+                <code>window.location.assign()</code> used to load another
+                resource from a URL provided as a parameter
+              </li>
+              <li>
+                <code>window.location.replace()</code> function the same as
+                assign(), but does not store the current page in session
+                history, thus preventing the user from returning to it using the
+                back button.
+              </li>
+              <li>
+                <code>window.location.toString()</code> returns a string
+                containing the whole URL
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>The Browser History</h3>
+        <ul>
+          <li>
+            <code>window.history</code> is used to get info regarding previously
+            visited pages in the current sesion. Not the same as the new HTML5
+            History API
+            <a href="http://www.sitepoint.com/javascript-history-pushstate/"
+              >More info on the History API</a
+            >
+          </li>
+          <li>
+            <code>window.history.length</code> displays number of pages visited
+            before the current page
+          </li>
+          <li>
+            <code>window.history.go()</code> used to go to a specific page where
+            0 is the current page. Example:
+            <pre>
+window.history.go(1); // goes forward 1 page
+window.history.go(0); // reloads the current page
+window.history.go(-1); // goes back 1 page</pre
+            >
+          </li>
+        </ul>
+
+        <h3>Controlling Windows</h3>
+        <ul>
+          <li>
+            <code>window.open()</code> opens a new window. Has three parameters:
+            URL of the page to be opened, the title of the window, and a list of
+            attributes. Can also be stored in a variable for ease of reference
+            later.
+          </li>
+          <li>
+            <code>window.close()</code> closes a window that you have a
+            reference to.
+          </li>
+          <li>
+            <code>window.moveTo(X, Y)</code> takes 2 parameters (the X and Y
+            coordinates) and then moves the window to that part of the screen
+          </li>
+          <li>
+            <code>window.resizeTo(width, height)</code> changes the window's
+            dimensions
+          </li>
+          <li>
+            These methods aren't a very good idea to use. There's almost always
+            a better way, so figure it out
+          </li>
+        </ul>
+
+        <h3>Screen Information</h3>
+        <ul>
+          <li>
+            <code>window.screen</code> contains info about the screen the
+            browser is displayed on.
+          </li>
+          <li><code>window.screen.height</code> returns the height</li>
+          <li><code>window.screen.width</code> returns the width</li>
+          <li>
+            <code>window.screen.availWidth</code> returns the width exluding any
+            OS menus
+          </li>
+          <li>
+            <code>window.screen.availHeight</code> returns the height exluding
+            any OS menus
+          </li>
+          <li>
+            <code>window.screen.colorDepth</code> returns teh color bit depth of
+            the user's monitor. Not super useful beyond collecting user
+            statistics
+          </li>
+          <li>
+            This object is more useful for mobile devices. Many of these methods
+            have been used maliciously or poorly in the past. A lot of what can
+            be accomplished with these methods can be accomplished with media
+            queries instead.
+          </li>
+        </ul>
+
+        <h3>The Document Object</h3>
+        <ul>
+          <li>
+            <code>document.write()</code> accepts a string and prints it to the
+            HTML page. If used on a page that is already loaded, it will
+            completely replace it. Can be used within the HTML file inside of a
+            script tag, but that is fairly useless. There may be a few use cases
+            for it, but try to use something else.
+          </li>
+          <li>
+            <h4>Cookies:</h4>
+            <ul>
+              <li>Store files locally about the User.</li>
+              <li>
+                Restricted to only be accessible by the domain that set them.
+              </li>
+              <li>
+                limited to 4kb of data with 20 cookies per domain allowed.
+              </li>
+              <li>
+                Often used for personalizing the user browsing expierience,
+                storing preferences, keeping track of choices (shopping cart),
+                authentication, and tracking (frowned own in recent years).
+              </li>
+              <li>
+                Being replaced by the localStorage API which allows more data to
+                be stored
+              </li>
+              <li>Useful for storing state info (is the user logged in?)</li>
+              <li>
+                They are a text file with a list of name/value pairs separated
+                by semicolons. <br />Syntax:<br />
+                <code>"name=Superman; hero=true; city=Metropolis"</code>
+              </li>
+              <li>
+                <strong
+                  >The EU Cookie Directive requires webistes based in the EU to
+                  get permission before setting cookies. This may become a
+                  global broswer setting rather than requiring each website to
+                  ask permission.
+                </strong>
+              </li>
+              <li>
+                <code>document.cookie = '';</code> creates a cookie. Acts like a
+                special type of string. Assigning another cookie won't overwrite
+                the entire property, just append it to the end fo the string.
+              </li>
+              <li>
+                The value of a cookie may be changed by reassigning it to
+                <code>document.cookie</code> using the same name, but a
+                different value.
+              </li>
+              <li>
+                <code>document.cookie</code> allows you to read all cookies.
+                This example breaks the cookie string into an array and then
+                parses it for ease of reading: <br />
+                <pre>
+const cookies = document.cookie.split("; ");
+for (crumb of cookies) {
+    const [key,value] = crumb.split("=");
+    console.log(`The value of ${key} is ${value}`);
+}</pre
+                >
+              </li>
+              <li>
+                By default, cookies are deleted when a browser session ends
+                (close the tab/window).
+              </li>
+              <li>
+                Cookies can be make persistent by adding
+                <code>"; expires=date"</code> to the end of a cookie when it is
+                set. <code>date</code> is a date value following the UTC String
+                format <code>Day, DD-Mon-YYYY HH:MM:SS GMT</code>
+              </li>
+              <li>
+                Persistent cookies can also be made using
+                <code>max-age=(number of seconds)</code>, but isn't supported by
+                Internet Explorer before version 10
+              </li>
+              <li>
+                Sensitive information shouldn't rely on cookie expiration since
+                browsers can sometimes retain cookie information when "sesion
+                restore" is used after a crash.
+              </li>
+              <li>
+                cookies can only be read inside teh same directory and domain as
+                the cookie was created in. Put their path can be changed so that
+                each page originating in the root directory has access by adding
+                <code>"; path=/"</code> or <code>"; domain=domainName"</code> to
+                the end of the cookie when it is created.
+              </li>
+              <li>
+                <code>"; secure"</code> makes teh cookie only transmittable over
+                HTTPS
+              </li>
+              <li>To delete a cookie, set it to expire in the past.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>Timing Functions</h3>
+        <ul>
+          <li>
+            <code
+              >window.setTimeout(callbackFunction, numberOfMilliseconds)</code
+            >
+            returns an integer as an ID used to reference that timeout.
+            <code>window.clearTimeout(id)</code> prevents the timeout from
+            occuring.
+          </li>
+        </ul>
+
+        <h3>setInterval()</h3>
+        <ul>
+          <li>
+            <code
+              >window.setInterval(callbackFunction, numberOfMilliseconds)</code
+            >
+            is similar to setTimeout(), except it repeatedly triggers the
+            callback function everytime the given number of milliseconds passes.
+            <code>window.clearInterval(id)</code> stops it.
+          </li>
+        </ul>
+
+        <h3>Note: setInterval() & Timing Functions</h3>
+        <ul>
+          <li>
+            When using either of these methods, ensure that the callback
+            function does <strong>not</strong> use the <code>this</code> keyword
+            since <code>this</code> will be bound to the global
+            <code>window</code> object instead of the callback function's
+            object.
+          </li>
+        </ul>
+
+        <h3>Animation</h3>
+        <ul>
+          <li>
+            <code>setInterval()</code> and <code>setTimeout()</code> can be used
+            to animate elements on the page. Example:
+            <iframe src="./animation/"></iframe>
+          </li>
+          <li>
+            <code>requestAnimationFrame</code> makes improvements to the
+            previous example to optimize its performance. (uses the built-in
+            graphics-handling of the browser, doesn't run it when the tab is
+            inactive)
+          </li>
+          <li>
+            While animation with JS is possible, CSS uses less lines of code and
+            is more optimized than JS. Consider using CSS instead of JS.
+          </li>
+        </ul>
+      </div>
+
+      <hr />
+      <button onclick="showOutput('chapter14')">Chapter 14: HTMNL5 APIs</button>
+      <br />
+      <!-- <div class="output" id="chapter14"> -->
+      <div>
+        <h2>Chapter 14: HTML5 APIs</h2>
+        <h3>HTML5</h3>
+        <ul>
+          <li>
+            W3C plans to update HTML5 more frequently using smaller version
+            increments.
+          </li>
+        </ul>
+
+        <h3>The data- Attribute</h3>
+        <ul>
+          <li>
+            The <code>data-</code> attribute is used to embed data in a page
+            using custom attributes that're ignored by the browser.
+          </li>
+          <li>
+            They're private to a page and not intended for use by external
+            service. Meant to be used by a JS script.
+          </li>
+          <li>
+            Must:
+            <ol>
+              <li>start with <code>data-</code></li>
+              <li>
+                only use lowercase letters, numbers, hyphens, dots, colons, or
+                underscores
+              </li>
+              <li>include an optional string value.</li>
+            </ol>
+            Examples:
+            <ul>
+              <li><code>data-powers = 'flight superSpeed'</code></li>
+              <li><code>data-rating = '5'</code></li>
+              <li><code>data-dropdown</code></li>
+              <li><code>data-user = 'DAZ'</code></li>
+              <li><code>data-max-length = '32'</code></li>
+            </ul>
+          </li>
+          <li>
+            Each document element has a <code>dataset</code> property used to
+            access the <code>data-</code> it contains. For example, the previous
+            <code>data-powers</code> example can be accesssed like this:
+            <br />
+            <pre>
+div id="hero" data-powers="flight superSpeed">Superman /div <br>
+const superman = document.getElementById('hero');
+const powers = superman.dataset.powers;
+<< 'flight superSpeed'
+            </pre>
+            NOTE: hyphenated data- attribute names are replaced with camel-case.
+            So data-max-length would be dataset.maxLength
+          </li>
+        </ul>
+
+        <h3>HTML5 APIs</h3>
+        <ul></ul>
+
+        <h3>Other APIs</h3>
+        <ul></ul>
+
+        <h3>Drawing with Canvas</h3>
+        <ul></ul>
+
+        <h3>Shims and Polyfills</h3>
+        <ul></ul>
+      </div>
+
+      <hr />
+      <button onclick="showOutput('modernWorkflow')">
+        Modern Front end Development Workflow
+      </button>
+      <br />
+      <!-- <div class="output" id="modernWorkflow"> -->
+      <div>
+        <h2>Modern Front end Development Workflow</h2>
+        <div></div>
+
+        <div></div>
+
+        <div></div>
+      </div>
+    </main>
+
+    <footer>
+      <a href="..">Return Home</a>
+      <span id="year"></span>
+      <span id="last-update"></span>
+    </footer>
+  </body>
+</html>
