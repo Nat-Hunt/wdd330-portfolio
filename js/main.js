@@ -33,10 +33,10 @@ const linksBlock2 = [
     label: "Week8 notes",
     url: "./week8/",
   },
-  // {
-  //   label: "Week9 notes",
-  //   url: "./week9/",
-  // },
+  {
+    label: "Week9 notes",
+    url: "./week9/",
+  },
   // {
   //   label: "Week10 notes",
   //   url: "./week10/",
