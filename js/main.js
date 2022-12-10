@@ -37,18 +37,10 @@ const linksBlock2 = [
     label: "Week9 notes",
     url: "./week9/",
   },
-  // {
-  //   label: "Week10 notes",
-  //   url: "./week10/",
-  // },
-  // {
-  //   label: "Week11 notes",
-  //   url: "./week11/",
-  // },
-  // {
-  //   label: "Week12 notes",
-  //   url: "./week12/",
-  // },
+  {
+    label: "Final Project",
+    url: "./final_project/",
+  },
 ];
 
 linksBlock1.forEach((item) => {
