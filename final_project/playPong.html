@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Play Pong</title>
+    <link rel="stylesheet" href="./styles/base.css" />
+    <script
+      src="https://kit.fontawesome.com/f4f3719e6e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./scripts/fill-footer.js" defer></script>
+
+    <script type="module" src="./scripts/pause.js" defer></script>
+    <script type="module" src="./scripts/scores.js" defer></script>
+
+    <script type="module" src="./scripts/main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Start</h1>
+    </header>
+
+    <main>
+      <div id="pauseMenu" class="gameBoard menu">
+        <div id="settings">
+          <h2>Settings</h2>
+
+          <label for="botReact">Bot reaction time</label>
+          <input
+            name="botReact"
+            type="range"
+            min="1"
+            max="100"
+            value="50"
+            class="slider"
+            id="botReact"
+          /><span id="botReactOutput"></span>
+
+          <label for="ballSpeed">Ball speed</label>
+          <input
+            name="ballSpeed"
+            type="range"
+            min="1"
+            max="100"
+            value="50"
+            class="slider"
+            id="ballSpeed"
+          /><span id="ballSpeedOutput"></span>
+
+          <label for="winCondition">Points to win</label>
+          <input
+            name="winCondition"
+            type="range"
+            min="1"
+            max="10"
+            value="10"
+            class="slider"
+            id="winCondition"
+          /><span id="winConditionOutput"></span>
+        </div>
+
+        <div id="startBtns" class="menuBtns">
+          <button id="loadGame">Load game</button>
+          <button id="startGame">play</button>
+        </div>
+
+        <div id="pauseBtns" class="menuBtns hide">
+          <button id="saveQuit">Save and quit</button>
+          <button id="resume">Resume</button>
+        </div>
+      </div>
+
+      <div id="play" class="gameBoard hide">
+        <div id="ball"><i class="fa-solid fa-volleyball ball_effect"></i></div>
+        <div id="player1" class="paddle"></div>
+        <div id="player2" class="paddle"></div>
+        <h1 id="player1Score" class="score">0</h1>
+        <h1 id="player2Score" class="score">0</h1>
+      </div>
+
+      <div id="gameOver" class="gameBoard menu hide">
+        <h2>Game Over</h2>
+        <div class="menuBtns">
+          <button id="playAgain1">Play Again?</button>
+          <button id="continue">Continue</button>
+        </div>
+      </div>
+
+      <div id="scores" class="gameBoard menu hide">
+        <h2>Score Chart</h2>
+        <table id="scoreCard">
+          <tr>
+            <th>Game Date</th>
+            <th>Win/loss</th>
+            <th>Player 1 Score</th>
+            <th>Player 2/Computer Score</th>
+          </tr>
+        </table>
+        <div class="menuBtns">
+          <button id="playAgain2">Play Again?</button>
+          <button id="home">Return to Home</button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div id="baseFooter">
+        <span id="year"></span>
+        <span id="last-update"></span>
+      </div>
+      <div>
+        <span>Resources Used:</span>
+        <span id="resourcesUsed"></span>
+      </div>
+    </footer>
+  </body>
+</html>
