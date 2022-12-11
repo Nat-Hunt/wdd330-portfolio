@@ -3,11 +3,11 @@ const Ball = {
   position_y: 50,
   speed: 10,
   setBallState: function (state) {
-    Ball.position_x = ballState.position_x;
-    Ball.position_y = ballState.position_y;
-    Ball.speed = ballState.speed;
+    Ball.position_x = state.position_x;
+    Ball.position_y = state.position_y;
+    Ball.speed = state.speed;
   },
-  saveBallState: function (ballState) {
+  saveBallState: function () {
     let state = {
       position_x: this.position_x,
       position_y: this.position_y,
