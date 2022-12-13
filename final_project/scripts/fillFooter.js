@@ -8,4 +8,4 @@ const today = new Date();
 
 year.innerHTML = `&copy ${today.getFullYear()} Pong | Nathan T. Hunt | WDD 330 Final `;
 lastUpdate.innerHTML = `Last Updated: ${document.lastModified}`;
-resourcesUsed.innerHTML = `<a href="https://en.wikipedia.org/api/rest_v1/#/">Wikimedia API</a>`;
+resourcesUsed.innerHTML = `<a href="https://en.wikipedia.org/api/rest_v1/#/" target="_blank">Wikimedia API</a><span> (opens in new tab)<span>`;

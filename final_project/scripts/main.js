@@ -36,6 +36,7 @@ function loadGame() {
   PauseView.settings.botReact = gameData.settings.botReact;
   PauseView.settings.ballSpeed = gameData.settings.ballSpeed;
   PauseView.settings.winCondition = gameData.settings.winCondition;
+  PauseView.displaySettings();
   Ball.setBallState(gameData.ball_state);
   Player1.setPlayerState(gameData.Player1State);
   Player2.setPlayerState(gameData.Player2State);

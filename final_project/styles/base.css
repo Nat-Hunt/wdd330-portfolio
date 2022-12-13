@@ -6,6 +6,11 @@ body {
    display: grid;
    justify-items: center;
 }
+header {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
  .pongHistoryDisplay {
     height: 400px;
     width: 1000px;
