@@ -70,8 +70,8 @@ function moveBall(dx, dy) {
     if (
       Ball.coordinates.x <= Player1.max_x &&
       Ball.coordinates.x >= Player1.min_x &&
-      Ball.coordinates.y <= Player1.max_y &&
-      Ball.coordinates.y >= Player1.min_y
+      Ball.coordinates.y <= Player1.position_y &&
+      Ball.coordinates.y >= Player1.position_y + 100
     ) {
       if (!(Math.sign(dx) == 1)) {
         dx = -dx;
@@ -80,8 +80,8 @@ function moveBall(dx, dy) {
     if (
       Ball.coordinates.x <= Player2.max_x &&
       Ball.coordinates.x >= Player2.min_x &&
-      Ball.coordinates.y <= Player2.max_y &&
-      Ball.coordinates.y >= Player2.min_y
+      Ball.coordinates.y <= Player2.position_y &&
+      Ball.coordinates.y >= Player2.position_y + 100
     ) {
       if (!(Math.sign(dx) == -1)) {
         dx = -dx;
