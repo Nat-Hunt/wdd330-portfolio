@@ -29,39 +29,23 @@ window.onload = function () {
 };
 
 const PauseView = {
+  pauseMenu: document.getElementById("pauseMenu"),
+  loadGameBtn: document.getElementById("loadGame"),
+  startGameBtn: document.getElementById("startGame"),
+  saveQuitBtn: document.getElementById("saveQuit"),
+  resumeGameBtn: document.getElementById("resume"),
   settings: {
     botReact: parseInt(botReact.value),
     ballSpeed: parseInt(ballSpeed.value),
     winCondition: parseInt(winCondition.value),
   },
   displaySettings: function () {
-    botReact.value = PauseView.settings.botReact;
-    botReactOutput.innerHTML = PauseView.settings.botReact;
-    ballSpeed.value = PauseView.settings.ballSpeed;
-    ballSpeedOutput.innerHTML = PauseView.settings.ballSpeed;
-    winCondition.value = PauseView.settings.winCondition;
-    winConditionOutput.innerHTML = PauseView.settings.winCondition;
-  },
-  pauseMenu: document.getElementById("pauseMenu"),
-  loadGameBtn: document.getElementById("loadGame"),
-  startGameBtn: document.getElementById("startGame"),
-  saveQuitBtn: document.getElementById("saveQuit"),
-  resumeGameBtn: document.getElementById("resume"),
-  keyboardShortcuts: function (key) {
-    if (key.code === "Escape") {
-      PauseView.resumeGame();
-    }
-  },
-  pauseGame: function (gameScreen) {
-    if (!gameScreen.classList.contains("hide")) {
-      gameScreen.classList.toggle("hide");
-    }
-    if (pauseMenu.classList.contains("hide")) {
-      pauseMenu.classList.toggle("hide");
-      pauseBtns.classList.toggle("hide");
-    }
-    PauseView.displaySettings();
-    return "paused";
+    botReact.value = this.settings.botReact;
+    botReactOutput.innerHTML = this.settings.botReact;
+    ballSpeed.value = this.settings.ballSpeed;
+    ballSpeedOutput.innerHTML = this.settings.ballSpeed;
+    winCondition.value = this.settings.winCondition;
+    winConditionOutput.innerHTML = this.settings.winCondition;
   },
   saveAndQuit: function (Ball, Player1Paddle, Player2Paddle) {
     // capture game data
@@ -72,7 +56,7 @@ const PauseView = {
       document.getElementById("player2Score").innerHTML
     );
     const gameData = {
-      settings: PauseView.settings,
+      settings: this.settings,
       player1Score: player1Score,
       player2Score: player2Score,
       ball_state: Ball,
@@ -82,6 +66,9 @@ const PauseView = {
     localStorage.setItem("savedGame", JSON.stringify(gameData));
 
     // Transition views
+    this.gameOverScreenToggle();
+  },
+  gameOverScreenToggle: function () {
     if (!play.classList.contains("hide")) {
       play.classList.toggle("hide");
     }
@@ -97,18 +84,6 @@ const PauseView = {
     if (gameOver.classList.contains("hide")) {
       gameOver.classList.toggle("hide");
     }
-  },
-  resumeGame: function () {
-    // hide the pause menu and display the game board
-    if (!pauseMenu.classList.contains("hide")) {
-      pauseMenu.classList.toggle("hide");
-      pauseBtns.classList.toggle("hide");
-    }
-    if (play.classList.contains("hide")) {
-      play.classList.toggle("hide");
-    }
-
-    return "running";
   },
 };
 

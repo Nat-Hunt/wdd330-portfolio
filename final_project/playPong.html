@@ -17,8 +17,10 @@
   </head>
   <body>
     <header>
-      <h1>Start</h1>
-      <p>Pres ESC to pause.</p>
+      <h1 id="title">Start</h1>
+      <p>
+        Press ESC to pause. Use the UP and DOWN arrow keys to move your paddle
+      </p>
     </header>
 
     <main>
@@ -30,9 +32,9 @@
           <input
             name="botReact"
             type="range"
-            min="1"
-            max="100"
-            value="50"
+            min="5"
+            max="20"
+            value="5"
             class="slider"
             id="botReact"
           /><span id="botReactOutput"></span>
@@ -42,8 +44,8 @@
             name="ballSpeed"
             type="range"
             min="1"
-            max="100"
-            value="50"
+            max="10"
+            value="5"
             class="slider"
             id="ballSpeed"
           /><span id="ballSpeedOutput"></span>
@@ -80,7 +82,7 @@
       </div>
 
       <div id="gameOver" class="gameBoard menu hide">
-        <h2>Game Over</h2>
+        <h2 id="salutation">Game Over</h2>
         <div class="menuBtns">
           <button id="playAgain1">Play Again?</button>
           <button id="continue">Continue</button>

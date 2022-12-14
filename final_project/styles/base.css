@@ -2,9 +2,6 @@
 
 /* Generic styles */
 body {
-  max-width: 1200px;
-  margin: 0 auto;
-  border: 1px solid black;
   display: grid;
   justify-items: center;
 }
@@ -46,6 +43,36 @@ header {
   justify-self: center;
 }
 
+/* Gameplay styles */
+#play {
+  position: relative;
+}
+#ball, #player1, #player2, #player1Score, #player2Score {
+  position: absolute;
+}
+
+.paddle {
+  height: 100px;
+  width: 10px;
+  border: 3px solid greenyellow;
+  background-color: greenyellow;
+}
+#player1 {
+  top: 0px;
+  left: 30px;
+}
+#player2 {
+  top: 350px;
+  right: 30px;
+}
+#player1Score {
+  top: -10px;
+  left: 10px;
+}
+#player2Score {
+  top: -10px;
+  right: 10px;
+}
 /* Classes */
 .pongHistoryDisplay {
   height: 400px;
@@ -54,6 +81,12 @@ header {
 }
 
 /* IDs */
+#salutation {
+  position: absolute;
+  justify-self: center;
+  top: 10%;
+  left: 45%;
+}
 
 
 /* Important styles */
